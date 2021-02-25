@@ -7,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +25,17 @@ public class DatabaseUtils {
     // Singleton design pattern
     private DatabaseUtils() {}
 
+    public static JSONArray parseJson(String path) throws IOException, ParseException {
+        final JSONParser parser = new JSONParser();
+        final JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(path));
+        return jsonArray;
+    }
+
     //TODO - think about interface for database operations;
     public static List<String> getAllUsersNames(){
         final List<String> userNames = new ArrayList<>();
-        final String pathName = "src/database/users.json";
         try {
-            final JSONParser parser = new JSONParser();
-            final JSONArray users = (JSONArray) parser.parse(new FileReader(PREFIX_PATH_USERS));
+            final JSONArray users = parseJson(PREFIX_PATH_USERS);
             for(Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("name");
@@ -46,11 +51,10 @@ public class DatabaseUtils {
     public static boolean checkIfUserNameExist(String userName) {
         boolean exist = false;
         try {
-            final JSONParser parser = new JSONParser();
-            final JSONArray users = (JSONArray) parser.parse(new FileReader(PREFIX_PATH_USERS));
+            final JSONArray users = parseJson(PREFIX_PATH_USERS);
             for(Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
-                String strName = (String) jsonObject.get("name");
+                String strName = (String) jsonObject.get("loginName");
                 if(strName.equalsIgnoreCase(userName))
                     exist = true;
             }
@@ -60,4 +64,23 @@ public class DatabaseUtils {
         }
         return exist;
     }
+
+    public static void writeNewClient(String loginName, String firstName, String lastName, String age, String password) {
+        try {
+            JSONArray array = parseJson(PREFIX_PATH_USERS);
+            JSONObject client = new JSONObject();
+            client.put("loginName", loginName);
+            client.put("firstName", firstName);
+            client.put("lastName", lastName);
+            client.put("age", age);
+            client.put("password", password);
+            array.add(client);
+            FileWriter file = new FileWriter(PREFIX_PATH_USERS);
+            file.write(array.toJSONString());
+            file.flush();
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
