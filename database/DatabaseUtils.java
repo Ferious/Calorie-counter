@@ -20,7 +20,7 @@ import java.util.List;
 
 public class DatabaseUtils {
 
-    private static final String PREFIX_PATH_USERS = "src/database/users.json";
+    private static final String PATH_TO_USERS = "src/database/users.json";
     // Private constructor to avoid client applications to use constructor
     // Singleton design pattern
     private DatabaseUtils() {}
@@ -35,14 +35,14 @@ public class DatabaseUtils {
     public static List<String> getAllUsersNames(){
         final List<String> userNames = new ArrayList<>();
         try {
-            final JSONArray users = parseJson(PREFIX_PATH_USERS);
+            final JSONArray users = parseJson(PATH_TO_USERS);
             for(Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("name");
                 userNames.add(strName);
             }
         } catch (IOException | ParseException e) {
-            System.out.println(String.format("Problem with reading from %s", PREFIX_PATH_USERS));
+            System.err.println(String.format("Problem with reading from %s", PATH_TO_USERS));
             e.printStackTrace();
         }
         return userNames;
@@ -51,7 +51,7 @@ public class DatabaseUtils {
     public static boolean checkIfUserNameExist(String userName) {
         boolean exist = false;
         try {
-            final JSONArray users = parseJson(PREFIX_PATH_USERS);
+            final JSONArray users = parseJson(PATH_TO_USERS);
             for(Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("loginName");
@@ -59,15 +59,33 @@ public class DatabaseUtils {
                     exist = true;
             }
         } catch (IOException | ParseException e) {
-            System.out.println(String.format("Problem with reading from %s", PREFIX_PATH_USERS));
+            System.err.println(String.format("Problem with reading from %s", PATH_TO_USERS));
             e.printStackTrace();
         }
         return exist;
     }
 
+    public static boolean logInUser(String userName, String password) {
+        boolean login = false;
+        try {
+            final JSONArray users = parseJson(PATH_TO_USERS);
+            for(Object o : users) {
+                JSONObject jsonObject = (JSONObject) o;
+                String strName = (String) jsonObject.get("loginName");
+                String pass = (String) jsonObject.get("password");
+                if(strName.equalsIgnoreCase(userName) && pass.equals(password))
+                    login = true;
+            }
+        } catch (IOException | ParseException e) {
+            System.err.println(String.format("Problem with reading from %s", PATH_TO_USERS));
+            e.printStackTrace();
+        }
+        return login;
+    }
+
     public static void writeNewClient(String loginName, String firstName, String lastName, String age, String password) {
         try {
-            JSONArray array = parseJson(PREFIX_PATH_USERS);
+            JSONArray array = parseJson(PATH_TO_USERS);
             JSONObject client = new JSONObject();
             client.put("loginName", loginName);
             client.put("firstName", firstName);
@@ -75,7 +93,7 @@ public class DatabaseUtils {
             client.put("age", age);
             client.put("password", password);
             array.add(client);
-            FileWriter file = new FileWriter(PREFIX_PATH_USERS);
+            FileWriter file = new FileWriter(PATH_TO_USERS);
             file.write(array.toJSONString());
             file.flush();
         } catch (IOException | ParseException e) {

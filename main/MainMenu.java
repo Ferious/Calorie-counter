@@ -32,7 +32,7 @@ public class MainMenu extends Menu {
                 case "S" : case "s" : signAsClient();break;
                 case "R" : case "r" : registerAsNewClient();break;
                 case "X" : case "x" : exit(); break;
-                default  : System.out.println(String.format("%s is a unknown option", option)); break;
+                default  : System.err.println(String.format("%s is a unknown option", option)); break;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -40,13 +40,19 @@ public class MainMenu extends Menu {
     }
 
     private void signAsClient() {
-        // TODO - implement me ASAP
         try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Enter a login name:");
             String loginName = br.readLine();
             System.out.println("Enter a password:");
             String password = br.readLine();
+            boolean login = DatabaseUtils.logInUser(loginName, password);
+            if(login) {
+                System.out.println(String.format("Welcome %s!", loginName));
+                new ClientMenu().run();
+            } else {
+                System.err.println("Login name or password is incorrect!");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,13 +75,12 @@ public class MainMenu extends Menu {
                 String pass1 = br.readLine();
                 System.out.println("Confirm your password:");
                 String pass2 = br.readLine();
-                if(!pass1.equals(pass2)) {
-                    throw new Exception(String.format("%s your password not equals!", loginName));
-                }
+                if(!pass1.equals(pass2))
+                    System.err.println(String.format("%s your password not equals!", loginName));
                 DatabaseUtils.writeNewClient(loginName, firstName, lastName, age, pass1);
                 System.out.println(String.format("%s you are successfully registered.", loginName));
             } else {
-                System.out.println(String.format("User with this username [%s] already exists!", loginName));
+                System.err.println(String.format("User with this username [%s] already exists!", loginName));
             }
         } catch (Exception e) {
             System.out.println(e.toString());
