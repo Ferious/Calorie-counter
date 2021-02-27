@@ -2,9 +2,9 @@ package main;
 
 import abstractClasses.Menu;
 import database.DatabaseUtils;
+import users.User;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -51,40 +51,38 @@ public class MainMenu extends Menu {
                 System.out.println(String.format("Welcome %s!", loginName));
                 new ClientMenu().run();
             } else {
-                System.err.println("Login name or password is incorrect!");
+                throw new Exception("Login name or password is incorrect!");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
     }
 
     private void registerAsNewClient() {
         try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            User user = new User();
             System.out.println("Enter a login name:");
             String loginName = br.readLine();
-            boolean userNameExist = DatabaseUtils.checkIfUserNameExist(loginName);
-            if(!userNameExist) {
-                System.out.println("Enter a user first name:");
-                String firstName = br.readLine();
-                System.out.println("Enter a user last name:");
-                String lastName = br.readLine();
-                System.out.println("Enter your age:");
-                String age = br.readLine();
-                System.out.println("Enter your password:");
-                String pass1 = br.readLine();
-                System.out.println("Confirm your password:");
-                String pass2 = br.readLine();
-                if(!pass1.equals(pass2))
-                    System.err.println(String.format("%s your password not equals!", loginName));
-                DatabaseUtils.writeNewClient(loginName, firstName, lastName, age, pass1);
-                System.out.println(String.format("%s you are successfully registered.", loginName));
-            } else {
-                System.err.println(String.format("User with this username [%s] already exists!", loginName));
-            }
+            user.setLoginName(loginName);
+            System.out.println("Enter a user first name:");
+            String firstName = br.readLine();
+            user.setFirstName(firstName);
+            System.out.println("Enter a user last name:");
+            String lastName = br.readLine();
+            user.setLastName(lastName);
+            System.out.println("Enter your age:");
+            String age = br.readLine();
+            user.setAge(age);
+            System.out.println("Enter your password:");
+            String pass1 = br.readLine();
+            System.out.println("Confirm your password:");
+            String pass2 = br.readLine();
+            user.setPassword(pass1, pass2);
+            DatabaseUtils.writeNewClient(user);
+            System.out.println(String.format("%s you are successfully registered.", loginName));
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.err.println(e.getMessage());
         }
     }
-
 }

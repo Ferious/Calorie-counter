@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import users.User;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -83,15 +84,15 @@ public class DatabaseUtils {
         return login;
     }
 
-    public static void writeNewClient(String loginName, String firstName, String lastName, String age, String password) {
+    public static void writeNewClient(User user) {
         try {
             JSONArray array = parseJson(PATH_TO_USERS);
             JSONObject client = new JSONObject();
-            client.put("loginName", loginName);
-            client.put("firstName", firstName);
-            client.put("lastName", lastName);
-            client.put("age", age);
-            client.put("password", password);
+            client.put("loginName", user.getLoginName());
+            client.put("firstName", user.getFirstName());
+            client.put("lastName", user.getLastName());
+            client.put("age", user.getAge());
+            client.put("password", user.getPassword());
             array.add(client);
             FileWriter file = new FileWriter(PATH_TO_USERS);
             file.write(array.toJSONString());
