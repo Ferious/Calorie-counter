@@ -91,7 +91,10 @@ public class DatabaseUtils {
             client.put("loginName", user.getLoginName());
             client.put("firstName", user.getFirstName());
             client.put("lastName", user.getLastName());
+            client.put("gender", user.getGender());
             client.put("age", user.getAge());
+            client.put("height", user.getHeight());
+            client.put("weight", user.getWeight());
             client.put("password", user.getPassword());
             array.add(client);
             FileWriter file = new FileWriter(PATH_TO_USERS);
