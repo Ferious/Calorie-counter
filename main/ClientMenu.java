@@ -17,6 +17,7 @@ public class ClientMenu extends Menu {
         System.out.println("±--------------------Client Menu------------------±");
         System.out.println("± 1. ->$ Activities                               ±");
         System.out.println("± 2. ->$ List                                     ±");
+        System.out.println("± 3. ->$ My Progress                              ±");
         System.out.println("± X. ->$ Exit to MainMenu                         ±");
         System.out.println("±-------------------------------------------------±");
     }
