@@ -1,7 +1,18 @@
 package enums;
 
 public enum ActivityDifficulty {
-    EASY,
-    MODERATE,
-    HARD
+    EASY("EASY"),
+    MODERATE("MODERATE"),
+    HARD("HARD");
+
+    private String name;
+
+    ActivityDifficulty(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }
