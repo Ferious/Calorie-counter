@@ -1,4 +1,4 @@
-package Statistics;
+package statistics;
 
 import abstractClasses.Menu;
 import activities.Activity;
@@ -7,7 +7,6 @@ import enums.ActivityDifficulty;
 import enums.ActivityType;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +25,8 @@ public class MyProgressMenu extends Menu {
         println("± 1. ->$ Weight change                            ±");
         println("± 2. ->$ All Exercises                            ±");
         println("± 3. ->$ Monthly average                          ±");
-        println("± 4. ->$ Calorie intake                           ±");
+        println("± 4. ->$ Progress of this month                   ±");
+        println("± 5. ->$ Calorie intake                           ±");
         println("± X. ->$ Exit to Client Menu                      ±");
         println("±-------------------------------------------------±");
     }
@@ -38,7 +38,8 @@ public class MyProgressMenu extends Menu {
                 case "1" : displayWeightChange(); break;
                 case "2" : displayExercise(); break;
                 case "3" : displayMonthlyAverageExercise(); break;
-                case "4" : displayCalorieIntake(); break;
+                case "4" : displayThisMonthProgress(); break;
+                case "5" : displayCalorieIntake(); break;
                 case "X" : case "x" : exit(); break;
                 default  : System.err.println(String.format("%s is a unknown option", option)); break;
             }
@@ -77,6 +78,17 @@ public class MyProgressMenu extends Menu {
             println("\tTime spend by activity: " + Statistics.timeSpendByActivity(activities, difficulty));
             println("\tNumber of performed activities: " + numberOfActivitiesOfType);
         }
+/*       Cyklistika:
+        cas straveny aktivitou 12
+        pocet jazd:  3
+
+        HARD:
+        prejdene 9 km
+        pocet jazd:  2
+
+        EASY:
+        prejdene 3 km
+        pocet jazd:  1*/
     }
 
     private void displayExercise() {
@@ -86,29 +98,37 @@ public class MyProgressMenu extends Menu {
         }
     }
 
-    private int numberOfActiveMonths() {
-        LocalDate now = LocalDate.now();
-        LocalDate minDate = getMinimalDate();
-        return (now.getYear() - minDate.getYear()) * 12 + (now.getMonthValue() - minDate.getMonthValue());
-    }
-
-    private LocalDate getMinimalDate() {
-        return myActivities.stream().map(a -> toLocalDate(a.getDate())).min(LocalDate::compareTo).get();
-    }
-
-    private LocalDate toLocalDate(String stringDate){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
-        LocalDate date = LocalDate.parse(stringDate, formatter);
-        return date;
-    }
-
     private void displayMonthlyAverageExercise() {
-        int numOfActiveMonths = numberOfActiveMonths();
+        int numOfActiveMonths = Statistics.numberOfActiveMonths(myActivities);
         println("Monthly average time spend by activities:");
         for (ActivityType type : ActivityType.values()) {
             List<Activity> activities = filterActivityByType(type);
             println("\t" + type.toString() + ": " + Statistics.averageTimeSpendByActivity(activities,numOfActiveMonths));
         }
+    }
+
+    private boolean hasSameMonth(Activity activity, LocalDate presentDate) {
+        LocalDate date = Statistics.toLocalDate(activity.getDate());
+        return presentDate.getYear() == date.getYear() && presentDate.getMonth() == date.getMonth();
+    }
+
+    private void displayThisMonthProgress() {
+        int numOfActiveMonths = Statistics.numberOfActiveMonths(myActivities);
+        LocalDate presentDate = LocalDate.now();
+        println("This month:");
+        for (ActivityType type : ActivityType.values()) {
+            List<Activity> thisMonthActivities = filterActivityByType(type).stream()
+                    .filter(a -> hasSameMonth(a, presentDate)).collect(Collectors.toList());
+            String timeSpentThisMonth = Statistics.timeSpendByActivity(thisMonthActivities);
+            println("\t" + type.toString());
+            println("\tTime spend: " + timeSpentThisMonth);
+            String averageTimeSpend = Statistics.averageTimeSpendByActivity(filterActivityByType(type),numOfActiveMonths);
+            println("\tComparison to month average: " + Statistics.differenceWithAverage(averageTimeSpend, timeSpentThisMonth));
+        }
+/*
+        April
+                time spend: 4h
+                compared to average months: - 1h 20min*/
     }
 
     private void displayCalorieIntake() { //TODO
