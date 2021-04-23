@@ -113,11 +113,16 @@ public class DatabaseUtils {
         }
     }
 
-    public static void writeNewActivity(Activity activity) {
+    public static void writeNewActivity(Activity activity, String userName) {
         try {
             JSONObject obj = parseJsonObject(PATH_TO_ACTIVITIES);
-            JSONArray array = (JSONArray) obj.get("noro");
-            int id = ((int)(long)((JSONObject)array.get(array.size()-1)).get("id"))+1;
+            JSONArray array = (JSONArray) obj.get(userName);
+            int id = 0;
+            if (array != null) {
+                id = ((int)(long)((JSONObject)array.get(array.size()-1)).get("id"))+1;
+            } else {
+                array = new JSONArray();
+            }
             JSONObject newActivity = new JSONObject();
             newActivity.put("id", id);
             newActivity.put("name", activity.getName());
@@ -128,7 +133,7 @@ public class DatabaseUtils {
             newActivity.put("difficulty", activity.getDifficulty().toString());
             array.add(newActivity);
             FileWriter file = new FileWriter(PATH_TO_ACTIVITIES);
-            obj.put("noro", array);
+            obj.put(userName, array);
             file.write(obj.toJSONString());
             file.flush();
         } catch (IOException | ParseException e) {
@@ -142,10 +147,12 @@ public class DatabaseUtils {
         try {
             JSONObject allActivities = parseJsonObject(PATH_TO_ACTIVITIES);
             userActivities = (JSONArray) allActivities.get(user);
-            for (int i = 0; i < userActivities.size(); i++){
-                JSONObject activityObject = (JSONObject)userActivities.get(i);
-                Activity activity = new Activity(activityObject);
-                result.add(activity);
+            if (userActivities != null) {
+                for (int i = 0; i < userActivities.size(); i++) {
+                    JSONObject activityObject = (JSONObject) userActivities.get(i);
+                    Activity activity = new Activity(activityObject);
+                    result.add(activity);
+                }
             }
         } catch (IOException | ParseException e) {
             System.err.println(String.format("Problem with reading from %s", PATH_TO_ACTIVITIES));

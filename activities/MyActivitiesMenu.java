@@ -2,8 +2,6 @@ package activities;
 
 import abstractClasses.Menu;
 import database.DatabaseUtils;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.util.List;
 

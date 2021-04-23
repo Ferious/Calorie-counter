@@ -6,6 +6,12 @@ import enums.ActivityType;
 
 public class NewActivityMenu extends Menu {
 
+    String userName;
+
+    public NewActivityMenu(String userName) {
+        this.userName = userName;
+    }
+
     @Override
     public void print() {
         System.out.println("±-------------------New Activity------------------±");
@@ -21,10 +27,10 @@ public class NewActivityMenu extends Menu {
     public void handle(String option) {
         try {
             switch (option) {
-                case "1" : new ActivityRecord(ActivityType.CYCLING).run(); break;
-                case "2" : new ActivityRecord(ActivityType.RUNNING).run(); break;
-                case "3" : new ActivityRecord(ActivityType.WALKING).run(); break;
-                case "4" : new ActivityRecord(ActivityType.WORKOUT).run(); break;
+                case "1" : new ActivityRecord(ActivityType.CYCLING, userName).run(); break;
+                case "2" : new ActivityRecord(ActivityType.RUNNING, userName).run(); break;
+                case "3" : new ActivityRecord(ActivityType.WALKING, userName).run(); break;
+                case "4" : new ActivityRecord(ActivityType.WORKOUT, userName).run(); break;
                 case "X" : case "x" : exit(); break;
                 default  : System.err.println(String.format("%s is a unknown option", option)); break;
             }

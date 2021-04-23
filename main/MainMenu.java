@@ -49,7 +49,7 @@ public class MainMenu extends Menu {
             boolean login = DatabaseUtils.logInUser(loginName, password);
             if(login) {
                 System.out.println(String.format("Welcome %s!", loginName));
-                new ClientMenu().run();
+                new ClientMenu(loginName).run();
             } else {
                 throw new Exception("Login name or password is incorrect!");
             }

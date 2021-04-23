@@ -2,7 +2,7 @@ package enums;
 
 public enum ActivityType {
     CYCLING("Cycling"),
-    RUNNING("Runing"),
+    RUNNING("Running"),
     WALKING("Walking"),
     WORKOUT("Workout");
 

@@ -15,8 +15,11 @@ public class ActivityRecord extends Menu {
     long stopTime;
     Activity activity;
 
-    public ActivityRecord(ActivityType type) {
+    String userName;
+
+    public ActivityRecord(ActivityType type, String userName) {
         this.activity = new Activity(type);
+        this.userName = userName;
         activity.calculateDate();
     }
 
@@ -108,7 +111,7 @@ public class ActivityRecord extends Menu {
     }
 
     public void save(){
-        DatabaseUtils.writeNewActivity(activity);
+        DatabaseUtils.writeNewActivity(activity, userName);
         System.out.println("Well done! Keep Moving!");
         exit();
     }

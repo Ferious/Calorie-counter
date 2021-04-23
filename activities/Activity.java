@@ -22,7 +22,7 @@ public class Activity {
 
     public Activity(JSONObject activity) {
         try {
-            type = ActivityType.valueOf((String)activity.get("type"));
+            type = ActivityType.valueOf(((String)activity.get("type")).toUpperCase());
             difficulty = ActivityDifficulty.valueOf((String)activity.get("difficulty"));
             name = (String) activity.get("name");
             calories = (int)(long)activity.get("calories");
@@ -30,14 +30,17 @@ public class Activity {
             date = (String) activity.get("date");
             id = (int)(long)activity.get("id");
         } catch (Exception e) {
-            System.err.println("JSONObject parse error");
+            System.err.println("ActivityError: JSONObject parse error");
         }
     }
 
     public String convertTime(long time){
         int seconds = (int) (time / 1000) % 60 ;
         int minutes = (int) ((time / (1000*60)) % 60);
-        return minutes + ":" + seconds;
+        int hours   = (int) ((time / (1000*60*60)) % 24);
+        return (hours/10 < 1 ? "0" : "") + hours + ":" +
+                (minutes/10 < 1 ? "0" : "") + minutes + ":" +
+                (seconds/10 < 1? "0" : "" ) + seconds;
     }
 
     public void calculateDate(){

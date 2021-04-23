@@ -23,8 +23,8 @@ class DatabaseUtilsTest {
         String name = "ali ";
         String password = "express ";
         assertFalse(DatabaseUtils.logInUser(name, password));
-        String name2 = "Janka";
-        String password2 = "vesela";
+        String name2 = "tester";
+        String password2 = "janko123";
         assertTrue(DatabaseUtils.logInUser(name2, password2));
     }
 

@@ -1,6 +1,6 @@
 package main;
 
-import Statistics.MyProgressMenu;
+import statistics.MyProgressMenu;
 import abstractClasses.Menu;
 import activities.NewActivityMenu;
 
@@ -31,7 +31,7 @@ public class ClientMenu extends Menu {
     public void handle(String option) {
         try {
             switch (option) {
-                case "1" : new ActivityMenu().run(); break;
+                case "1" : new ActivityMenu(userName).run(); break;
                 case "2" : break;
                 case "3" : new MyProgressMenu(userName).run(); break;
                 case "X" : case "x" : exit(); break;
