@@ -167,11 +167,12 @@ class ActivityTest {
         activityRecord.setState(ActivityState.END);
         activityRecord.activity.setName("Test");
         activityRecord.activity.setDifficulty(ActivityDifficulty.MODERATE);
-        activityRecord.activity.setId(-1);
+        int testingId = -1;
+        activityRecord.activity.setId(testingId);
         activityRecord.calculateCalories();
         activityRecord.save();
         List<Activity> activities = DatabaseUtils.getUserActivities("test");
-        Predicate<Activity> byId = activity -> activity.getId() == -1;
+        Predicate<Activity> byId = activity -> activity.getId() == testingId;
         List<Activity> testingActivity = activities.stream().filter(byId).collect(Collectors.toList());
         ActivityDetail detail = new ActivityDetail(testingActivity.get(0), "test") ;
         assertEquals(activityRecord.activity.getId(), detail.activity.getId());

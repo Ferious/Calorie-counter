@@ -24,6 +24,7 @@ public class DatabaseUtils {
 
     private static final String PATH_TO_USERS = "database/users.json";
     private static final String PATH_TO_ACTIVITIES = "database/activities.json";
+    private static final String PATH_TO_TRACKING = "database/tracking.json";
     // Private constructor to avoid client applications to use constructor
     // Singleton design pattern
     private DatabaseUtils() {}
@@ -143,11 +144,10 @@ public class DatabaseUtils {
     }
 
     public static List<Activity> getUserActivities(String user){
-        JSONArray userActivities =  new JSONArray();
         List<Activity> result = new ArrayList<>();
         try {
             JSONObject allActivities = parseJsonObject(PATH_TO_ACTIVITIES);
-            userActivities = (JSONArray) allActivities.get(user);
+            JSONArray userActivities = (JSONArray) allActivities.get(user);
             if (userActivities != null) {
                 for (int i = 0; i < userActivities.size(); i++) {
                     JSONObject activityObject = (JSONObject) userActivities.get(i);
@@ -187,6 +187,80 @@ public class DatabaseUtils {
             System.err.println(String.format("Problem with reading from %s", PATH_TO_ACTIVITIES));
             e.printStackTrace();
         }
+    }
+
+    public static void updateWeightChange(int weight, String date, String userName) {
+        try {
+            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject trackingData = (JSONObject) obj.get(userName);
+            if (trackingData == null) {
+                trackingData = initializeTrackingData();
+            }
+            JSONArray weightTracking = (JSONArray) trackingData.get("weightChange");
+            JSONObject newWeight = new JSONObject();
+            newWeight.put("weight", weight);
+            newWeight.put("date", date);
+            weightTracking.add(newWeight);
+            trackingData.put("weightChange", weightTracking);
+            obj.put(userName, trackingData);
+            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            file.write(obj.toJSONString());
+            file.flush();
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateCalorieIntake(int calories, String date, String userName) {
+        try {
+            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject trackingData = (JSONObject) obj.get(userName);
+            if (trackingData == null) {
+                trackingData = initializeTrackingData();
+            }
+            JSONArray weightTracking = (JSONArray) trackingData.get("calorieIntake");
+            JSONObject newCalories = new JSONObject();
+            newCalories.put("calories", calories);
+            newCalories.put("date", date);
+            weightTracking.add(newCalories);
+            trackingData.put("calorieIntake", weightTracking);
+            obj.put(userName, trackingData);
+            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            file.write(obj.toJSONString());
+            file.flush();
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateFluidIntake(int fluid, String date, String userName) {
+        try {
+            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject trackingData = (JSONObject) obj.get(userName);
+            if (trackingData == null) {
+                trackingData = initializeTrackingData();
+            }
+            JSONArray weightTracking = (JSONArray) trackingData.get("fluidIntake");
+            JSONObject newFluid = new JSONObject();
+            newFluid.put("fluid", fluid);
+            newFluid.put("date", date);
+            weightTracking.add(newFluid);
+            trackingData.put("fluidIntake", weightTracking);
+            obj.put(userName, trackingData);
+            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            file.write(obj.toJSONString());
+            file.flush();
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject initializeTrackingData() {
+        JSONObject trackingData = new JSONObject();
+        trackingData.put("weightChange", new JSONArray());
+        trackingData.put("calorieIntake", new JSONArray());
+        trackingData.put("fluidIntake", new JSONArray());
+        return trackingData;
     }
 
 }
