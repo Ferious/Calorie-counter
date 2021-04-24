@@ -117,14 +117,15 @@ public class DatabaseUtils {
         try {
             JSONObject obj = parseJsonObject(PATH_TO_ACTIVITIES);
             JSONArray array = (JSONArray) obj.get(userName);
-            int id = 0;
             if (array != null) {
-                id = ((int)(long)((JSONObject)array.get(array.size()-1)).get("id"))+1;
+                if (activity.getId() == 0) {
+                    activity.setId(((int)(long)((JSONObject)array.get(array.size()-1)).get("id"))+1);
+                }
             } else {
                 array = new JSONArray();
             }
             JSONObject newActivity = new JSONObject();
-            newActivity.put("id", id);
+            newActivity.put("id", activity.getId());
             newActivity.put("name", activity.getName());
             newActivity.put("type", activity.getType().toString());
             newActivity.put("time", activity.getTime());
@@ -162,10 +163,10 @@ public class DatabaseUtils {
     }
 
 
-    public static void removeActivity(Activity activity){
+    public static void removeActivity(String userName, Activity activity){
         try {
             JSONObject allActivities = parseJsonObject(PATH_TO_ACTIVITIES);
-            JSONArray userActivities = (JSONArray) allActivities.get("noro");
+            JSONArray userActivities = (JSONArray) allActivities.get(userName);
             int resultIndex = -1;
             for (int i = 0; i < userActivities.size(); i++){
                 JSONObject activityObject = (JSONObject)userActivities.get(i);
@@ -178,7 +179,7 @@ public class DatabaseUtils {
             if (resultIndex >= 0) {
                 userActivities.remove(resultIndex);
                 FileWriter file = new FileWriter(PATH_TO_ACTIVITIES);
-                allActivities.put("noro", userActivities);
+                allActivities.put(userName, userActivities);
                 file.write(allActivities.toJSONString());
                 file.flush();
             }

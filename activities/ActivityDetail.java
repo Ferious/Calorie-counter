@@ -14,9 +14,11 @@ import java.time.format.DateTimeFormatter;
 
 public class ActivityDetail extends Menu {
     Activity activity;
+    String user;
 
-    public ActivityDetail(Activity activity) {
+    public ActivityDetail(Activity activity, String user) {
         this.activity = activity;
+        this.user = user;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class ActivityDetail extends Menu {
     }
 
     public void delete() {
-        DatabaseUtils.removeActivity(activity);
+        DatabaseUtils.removeActivity(user, activity);
     }
 
 }

@@ -117,29 +117,8 @@ public class ActivityRecord extends Menu {
     }
 
     public void calculateCalories(){
-        activity.setCalories((int) (activity.getTime()/1000/60 *(getMET()*3.5*90)/200));
+        activity.calculateCalories();
     }
 
-    public int getMET() {
-        double met = 0;
-        switch (activity.getType()) {
-            case CYCLING :
-                met = 9.5;
-                break;
-            case RUNNING:
-                met = 9.8;
-                break;
-            case WALKING:
-                met = 3.8;
-                break;
-            case WORKOUT:
-                met = 4.5;
-                break;
-            default:
-                met = 1;
-        }
-        met *= (activity.getDifficulty() == ActivityDifficulty.EASY ? 0.8 : activity.getDifficulty() == ActivityDifficulty.HARD ? 1.2 : 1);
-        return (int) Math.round(met);
-    }
 
 }

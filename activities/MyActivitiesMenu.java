@@ -38,7 +38,7 @@ public class MyActivitiesMenu extends Menu {
                     try {
                         int number = Integer.parseInt(option);
                         if (number > 0 && number <= activities.size()) {
-                            new ActivityDetail(activities.get(number-1)).run();
+                            new ActivityDetail(activities.get(number-1), user).run();
                             activities = DatabaseUtils.getUserActivities(user);
                         } else {
                             System.err.println(String.format("%s is out of range", option));

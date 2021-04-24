@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Activity {
-    int id;
+    int id = 0;
     ActivityType type;
     ActivityDifficulty difficulty;
     String name;
@@ -49,6 +49,32 @@ public class Activity {
         this.setDate(date.format(formatter));
     }
 
+    public void calculateCalories(){
+        setCalories((int) Math.round(getTime()/1000/60 *(getMET()*3.5*90)/200));
+    }
+
+    public double getMET() {
+        double met = 0;
+        switch (getType()) {
+            case CYCLING :
+                met = 9.5;
+                break;
+            case RUNNING:
+                met = 9.8;
+                break;
+            case WALKING:
+                met = 3.8;
+                break;
+            case WORKOUT:
+                met = 4.5;
+                break;
+            default:
+                met = 1;
+        }
+        met *= (getDifficulty() == ActivityDifficulty.EASY ? 0.8 : getDifficulty() == ActivityDifficulty.HARD ? 1.2 : 1);
+        return met;
+    }
+
     public void setCalories(int calories) {
         this.calories = calories;
     }
@@ -59,6 +85,9 @@ public class Activity {
         this.difficulty = difficulty;
     }
     public void setTime(long time) {
+        if (time < 0) {
+            time = 0;
+        }
         this.time = time;
     }
     public void setName(String name) {
