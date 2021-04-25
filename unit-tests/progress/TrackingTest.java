@@ -1,4 +1,4 @@
-package tracking;
+package progress;
 
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +13,7 @@ class TrackingTest {
 
     @Test
     void setCorrectWeight() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = "78.45";
         try {
             assertTrue(tracking.setWeight(weight));
@@ -24,7 +24,7 @@ class TrackingTest {
 
     @Test
     void setWrongWeight1() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = "78.345";
         try {
             tracking.setWeight(weight);
@@ -35,7 +35,7 @@ class TrackingTest {
 
     @Test
     void setWrongWeight2() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = "7s";
         try {
             tracking.setWeight(weight);
@@ -46,7 +46,7 @@ class TrackingTest {
 
     @Test
     void setWrongWeight3() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = "-20";
         try {
             tracking.setWeight(weight);
@@ -57,7 +57,7 @@ class TrackingTest {
 
     @Test
     void setWrongWeight4() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = "75.";
         try {
             tracking.setWeight(weight);
@@ -68,7 +68,7 @@ class TrackingTest {
 
     @Test
     void setWrongWeight5() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String weight = ".45";
         try {
             tracking.setWeight(weight);
@@ -79,7 +79,7 @@ class TrackingTest {
 
     @Test
     void setCorrectCalories() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String calories = "520";
         try {
             assertTrue(tracking.setCalories(calories));
@@ -90,7 +90,7 @@ class TrackingTest {
 
     @Test
     void setWrongCalories1() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String calories = "75.5";
         try {
             tracking.setCalories(calories);
@@ -101,7 +101,7 @@ class TrackingTest {
 
     @Test
     void setWrongCalories2() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String calories = "7s";
         try {
             tracking.setCalories(calories);
@@ -112,7 +112,7 @@ class TrackingTest {
 
     @Test
     void setWrongCalories3() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String calories = "-200";
         try {
             tracking.setCalories(calories);
@@ -123,7 +123,7 @@ class TrackingTest {
 
     @Test
     void setCorrectFluid() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String fluid = "520";
         try {
             assertTrue(tracking.setFluid(fluid));
@@ -134,7 +134,7 @@ class TrackingTest {
 
     @Test
     void setWrongFluid1() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String fluid = "75.5";
         try {
             tracking.setCalories(fluid);
@@ -145,7 +145,7 @@ class TrackingTest {
 
     @Test
     void setWrongFluid2() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String fluid = "7s";
         try {
             tracking.setCalories(fluid);
@@ -156,7 +156,7 @@ class TrackingTest {
 
     @Test
     void setWrongFluid3() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         String fluid = "-200";
         try {
             tracking.setCalories(fluid);
@@ -167,7 +167,7 @@ class TrackingTest {
 
     @Test
     void setGetDate() {
-        TrackingMenu tracking = new TrackingMenu("test");
+        ProgressMenu tracking = new ProgressMenu("test");
         LocalDateTime date = (java.time.LocalDateTime.now());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm");
         tracking.setDate(date.format(formatter));

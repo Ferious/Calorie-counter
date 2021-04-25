@@ -24,7 +24,7 @@ public class DatabaseUtils {
 
     private static final String PATH_TO_USERS = "database/users.json";
     private static final String PATH_TO_ACTIVITIES = "database/activities.json";
-    private static final String PATH_TO_TRACKING = "database/tracking.json";
+    private static final String PATH_TO_PROGRESS = "database/progress.json";
     // Private constructor to avoid client applications to use constructor
     // Singleton design pattern
     private DatabaseUtils() {}
@@ -191,7 +191,7 @@ public class DatabaseUtils {
 
     public static void updateWeightChange(double weight, String date, String userName) {
         try {
-            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject obj = parseJsonObject(PATH_TO_PROGRESS);
             JSONObject trackingData = (JSONObject) obj.get(userName);
             if (trackingData == null) {
                 trackingData = initializeTrackingData();
@@ -203,7 +203,7 @@ public class DatabaseUtils {
             weightTracking.add(newWeight);
             trackingData.put("weightChange", weightTracking);
             obj.put(userName, trackingData);
-            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            FileWriter file = new FileWriter(PATH_TO_PROGRESS);
             file.write(obj.toJSONString());
             file.flush();
         } catch (IOException | ParseException e) {
@@ -213,7 +213,7 @@ public class DatabaseUtils {
 
     public static void updateCalorieIntake(int calories, String date, String userName) {
         try {
-            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject obj = parseJsonObject(PATH_TO_PROGRESS);
             JSONObject trackingData = (JSONObject) obj.get(userName);
             if (trackingData == null) {
                 trackingData = initializeTrackingData();
@@ -225,7 +225,7 @@ public class DatabaseUtils {
             weightTracking.add(newCalories);
             trackingData.put("calorieIntake", weightTracking);
             obj.put(userName, trackingData);
-            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            FileWriter file = new FileWriter(PATH_TO_PROGRESS);
             file.write(obj.toJSONString());
             file.flush();
         } catch (IOException | ParseException e) {
@@ -235,7 +235,7 @@ public class DatabaseUtils {
 
     public static void updateFluidIntake(int fluid, String date, String userName) {
         try {
-            JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
+            JSONObject obj = parseJsonObject(PATH_TO_PROGRESS);
             JSONObject trackingData = (JSONObject) obj.get(userName);
             if (trackingData == null) {
                 trackingData = initializeTrackingData();
@@ -247,7 +247,7 @@ public class DatabaseUtils {
             weightTracking.add(newFluid);
             trackingData.put("fluidIntake", weightTracking);
             obj.put(userName, trackingData);
-            FileWriter file = new FileWriter(PATH_TO_TRACKING);
+            FileWriter file = new FileWriter(PATH_TO_PROGRESS);
             file.write(obj.toJSONString());
             file.flush();
         } catch (IOException | ParseException e) {

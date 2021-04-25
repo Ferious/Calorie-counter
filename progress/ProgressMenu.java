@@ -1,17 +1,14 @@
-package tracking;
+package progress;
 
 import abstractClasses.Menu;
-import activities.MyActivitiesMenu;
-import activities.NewActivityMenu;
 import database.DatabaseUtils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TrackingMenu extends Menu {
+public class ProgressMenu extends Menu {
     String userName;
 
     double weight;
@@ -20,13 +17,13 @@ public class TrackingMenu extends Menu {
 
     String date;
 
-    public TrackingMenu(String userName) {
+    public ProgressMenu(String userName) {
         this.userName = userName;
     }
 
     @Override
     public void print() {
-        System.out.println("±------------------Tracking Menu------------------±");
+        System.out.println("±------------------Progress Menu------------------±");
         System.out.println("± 1. -> Change weight                             ±");
         System.out.println("± 2. -> Calorie intake                            ±");
         System.out.println("± 3. -> Fluid intake                              ±");

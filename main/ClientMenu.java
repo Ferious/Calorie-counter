@@ -3,7 +3,7 @@ package main;
 import activities.ActivityMenu;
 import statistics.MyProgressMenu;
 import abstractClasses.Menu;
-import tracking.TrackingMenu;
+import progress.ProgressMenu;
 
 /**
  * @author - annonymous team
@@ -22,7 +22,7 @@ public class ClientMenu extends Menu {
     public void print() {
         System.out.println("±--------------------Client Menu------------------±");
         System.out.println("± 1. ->$ Activities                               ±");
-        System.out.println("± 2. ->$ Track Progress                           ±");
+        System.out.println("± 2. ->$ Update Progress                          ±");
         System.out.println("± 3. ->$ My Progress                           ±");
         System.out.println("± X. ->$ Exit to MainMenu                         ±");
         System.out.println("±-------------------------------------------------±");
@@ -33,7 +33,7 @@ public class ClientMenu extends Menu {
         try {
             switch (option) {
                 case "1" : new ActivityMenu(userName).run(); break;
-                case "2" : new TrackingMenu(userName).run(); break;
+                case "2" : new ProgressMenu(userName).run(); break;
                 case "3" : new MyProgressMenu(userName).run(); break;
                 case "X" : case "x" : exit(); break;
                 default  : System.err.println(String.format("%s is a unknown option", option)); break;
