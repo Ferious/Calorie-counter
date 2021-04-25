@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 public class TrackingMenu extends Menu {
     String userName;
 
-    int weight;
+    double weight;
     int calories;
     int fluid;
 
@@ -52,7 +52,7 @@ public class TrackingMenu extends Menu {
     public void updateWeight(){
         try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Enter new weight:");
+            System.out.println("Enter new weight (kg):");
             String weight = br.readLine();
             if (setWeight(weight)) {
                 calculateDateTime();
@@ -92,22 +92,22 @@ public class TrackingMenu extends Menu {
     }
 
     public boolean setWeight(String weight) throws Exception {
-        if(!weight.matches("[0-9]+"))
-            throw new Exception("Weight can contain only numeric characters!");
-        this.weight = Integer.parseInt(weight);
+        if(!weight.matches("[0-9]+(\\.[0-9][0-9]?)?"))
+            throw new Exception("Weight (kg) can contain only positive numeric and two decimal characters!");
+        this.weight = Double.parseDouble(weight);
         return true;
     }
 
     public boolean setCalories(String calories) throws Exception {
         if(!calories.matches("[0-9]+"))
-            throw new Exception("Weight can contain only numeric characters!");
+            throw new Exception("Calories (kcal) can contain only positive numeric characters!");
         this.calories = Integer.parseInt(calories);
         return true;
     }
 
     public boolean setFluid(String fluid) throws Exception {
         if(!fluid.matches("[0-9]+"))
-            throw new Exception("Weight can contain only numeric characters!");
+            throw new Exception("Fluid (mililiters) can contain only positive numeric characters!");
         this.fluid = Integer.parseInt(fluid);
         return true;
     }
@@ -124,6 +124,16 @@ public class TrackingMenu extends Menu {
 
     public String getDate() {
         return date;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public int getCalories() { return calories; }
+
+    public int getFluid() {
+        return fluid;
     }
 
 }

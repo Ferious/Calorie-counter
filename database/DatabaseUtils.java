@@ -189,7 +189,7 @@ public class DatabaseUtils {
         }
     }
 
-    public static void updateWeightChange(int weight, String date, String userName) {
+    public static void updateWeightChange(double weight, String date, String userName) {
         try {
             JSONObject obj = parseJsonObject(PATH_TO_TRACKING);
             JSONObject trackingData = (JSONObject) obj.get(userName);
