@@ -1,0 +1,3 @@
+[{"firstName":"Matej","lastName":"Sivy","password":"vesely123","gender":"Man","loginName":"user22","weight":"187","age":"25","height":"187"},{"firstName":"Janko","lastName":"Siroky","password":"janko123","gender":"Man","loginName":"tester","weight":"90","age":"10","height":"160"},
+  {"firstName":"noro","lastName":"jurik","password":"heslo123","gender":"Man","loginName":"noro","weight":"92","age":"23","height":"202"},
+  {"firstName":"ivet","lastName":"ivet","password":"ivet","gender":"Man","loginName":"ivet","weight":"92","age":"23","height":"202"}]
