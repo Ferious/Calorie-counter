@@ -1,14 +1,15 @@
 package meal;
 
 import database.DatabaseUtils;
-import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GenerateMeal {
     private static final int MAX_NUMBER = 3000;
@@ -71,17 +72,17 @@ public class GenerateMeal {
         return 0;
     }
 
-    public List<Pair<Integer, JSONObject>> TryFind(int kcal) throws Exception {
+    public List<Map.Entry<Integer, JSONObject>> TryFind(int kcal) throws Exception {
         if(MIN_NUMBER > kcal || MAX_NUMBER < kcal){
             throw new Exception("Wrong number!");
         }
         int type = 1;
         int countCalories = 0;
-        List<Pair<Integer, JSONObject>> foods = new ArrayList();
+        List<Map.Entry<Integer, JSONObject>> foods = new ArrayList();
         boolean isOk  = (kcal - 50  <= countCalories && countCalories <= kcal + 50);
         int tmp = 0;
         while(!isOk && tmp <= 5 ){
-            Pair<Integer, JSONObject> food = menu(type);
+            Map.Entry<Integer, JSONObject> food = menu(type);
             int status = isOk(countCalories +  food.getKey(), kcal);
             if (status == 0){
                 isOk = true;
@@ -105,10 +106,10 @@ public class GenerateMeal {
 
 
     public void findMenu(int kcal) throws Exception {
-        List<Pair<Integer, JSONObject>> foods = TryFind(kcal);
+        List<Map.Entry<Integer, JSONObject>> foods = TryFind(kcal);
         int count = 0;
         System.out.println("******** Your Menu for TODAY ********\n");
-        for(Pair<Integer, JSONObject> food: foods){
+        for(Map.Entry<Integer, JSONObject> food: foods){
             MealPrinter.print(food.getValue());
             count += food.getKey();
         }
@@ -116,7 +117,7 @@ public class GenerateMeal {
 
     }
 
-    public Pair<Integer, JSONObject> menu(int type){
+    public Map.Entry<Integer, JSONObject> menu(int type){
         JSONArray food = DatabaseUtils.getallfood();
         List<JSONObject> objectList = new ArrayList<>();
         for(Object o : food){
@@ -128,7 +129,7 @@ public class GenerateMeal {
         }
         int random = (int) (Math.random() * ( objectList.size() - 1 ));
         JSONObject he = objectList.get(random);
-        return new Pair<>(Integer.parseInt(he.get("Kcal").toString()), he);
+        return new AbstractMap.SimpleEntry<>(Integer.parseInt(he.get("Kcal").toString()), he);
     }
 
 }
