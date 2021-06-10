@@ -4,44 +4,58 @@ import activities.Activity;
 import enums.ActivityDifficulty;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Statistics {
 
     public static int numberOfActiveMonths(List<Activity> activities) {
-        LocalDate now = LocalDate.now();
+        LocalDate maxDate = getMaximalDate(activities);
         LocalDate minDate = getMinimalDate(activities);
-        return (now.getYear() - minDate.getYear()) * 12 + (now.getMonthValue() - minDate.getMonthValue());
+        if (minDate == null || maxDate == null) {
+            return 0;
+        }
+        return (maxDate.getYear() - minDate.getYear()) * 12 + (maxDate.getMonthValue() - minDate.getMonthValue()) + 1;
     }
 
-    private static LocalDate getMinimalDate(List<Activity> activities) {
+    public static LocalDate getMaximalDate(List<Activity> activities) {
+        if(activities == null || activities.isEmpty()){
+            return null;
+        }
+        return activities.stream().map(a -> toLocalDate(a.getDate())).max(LocalDate::compareTo).get();
+    }
+
+    public static LocalDate getMinimalDate(List<Activity> activities) {
+        if(activities == null || activities.isEmpty()){
+            return null;
+        }
         return activities.stream().map(a -> toLocalDate(a.getDate())).min(LocalDate::compareTo).get();
     }
 
     public static LocalDate toLocalDate(String stringDate){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.YYYY");
-        LocalDate date = LocalDate.parse(stringDate, formatter);
-        return date;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return LocalDate.parse(stringDate, formatter);
     }
 
     public static int numberOfActivities(List<Activity> activities) {
-        if(activities == null) {
+        if(activities == null || activities.isEmpty()) {
             return 0;
         }
         return activities.size();
     }
 
     public static int numberOfActivities(List<Activity> activities, ActivityDifficulty difficulty) {
-        if(activities == null) {
+        if(activities == null || activities.isEmpty()) {
             return 0;
         }
         return (int) activities.stream().filter(a -> a.getDifficulty() == difficulty).count();
     }
 
     public static String averageTimeSpendByActivity(List<Activity> activities, int numOfActMonths) {
-        if(activities == null) {
+        if (activities == null || activities.isEmpty()) {
             return longToTime(0);
         }
         long time = activities.stream().map(Activity::getTime).reduce(Long::sum).get();
@@ -50,7 +64,7 @@ public class Statistics {
 
 
     public static String timeSpendByActivity(List<Activity> activities) {
-        if(activities == null) {
+        if(activities == null|| activities.isEmpty()) {
             return longToTime(0);
         }
         long time = activities.stream().map(Activity::getTime).reduce(Long::sum).get();
@@ -58,7 +72,7 @@ public class Statistics {
     }
 
     public static String timeSpendByActivity(List<Activity> activities, ActivityDifficulty difficulty){
-        if(activities == null) {
+        if(activities == null || activities.isEmpty() || difficulty == null) {
             return longToTime(0);
         }
         long time = activities.stream().filter(a -> a.getDifficulty() == difficulty)
@@ -66,13 +80,16 @@ public class Statistics {
         return longToTime(time);
     }
 
-    public static String differenceWithAverage(String averageTime, String time) {
-        LocalTime myTime = LocalTime.ofNanoOfDay(Statistics.timeToLong(time));
-        LocalTime averageT = LocalTime.ofNanoOfDay(Statistics.timeToLong(averageTime));
-        if(myTime.isAfter(averageT)){
-            return "+" + Statistics.longToTime(myTime.toNanoOfDay() - averageT.toNanoOfDay());
+    public static String differenceFromAverage(String averageTime, String time) {
+        Long myTime = Statistics.timeToLong(time);
+        Long averageT = Statistics.timeToLong(averageTime);
+        if(myTime > averageT){
+            return "+ " + Statistics.longToTime(myTime - averageT);
         }
-        return "-" + Statistics.longToTime(averageT.toNanoOfDay() - myTime.toNanoOfDay());
+        if(myTime.equals(averageT)){
+            return Statistics.longToTime(0);
+        }
+        return "- " + Statistics.longToTime(averageT - myTime);
     }
 
     public static String longToTime(long time) {
@@ -83,8 +100,25 @@ public class Statistics {
     }
 
     public static long timeToLong(String strTime) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H 'h' m 'min' s 's'");
-        LocalTime time = LocalTime.parse(strTime, formatter);
-        return (((time.getHour() * 60L) + time.getMinute()) * 60L + time.getSecond()) * 1000L;
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H 'h' m 'min' s 's'");
+        int hour = Integer.parseInt(strTime.substring(0,strTime.indexOf(' ')));
+        strTime = strTime.substring(strTime.indexOf('h') + 2 );
+        int min = Integer.parseInt(strTime.substring(0, strTime.indexOf(' ')) );
+        strTime = strTime.substring(strTime.indexOf('n') + 2 );
+        int sec = Integer.parseInt(strTime.substring(0, strTime.indexOf(' ')) );
+        return (((hour * 60L) + min) * 60L + sec) * 1000L;
+    }
+
+    public static LocalDate getLastYear() {
+        LocalDate yearAgo = LocalDate.now().minusYears(1).plusMonths(1);
+        LocalDate date = (LocalDate.of(yearAgo.getYear(), yearAgo.getMonthValue(), 1)).minusDays(1);
+        return date;
+    }
+
+    public static Map<Month, Double> getMonthlyAverageWeights(List<ProgressRecord> progressRecords) {
+        Map<Month, Double> monthlyAverages =  progressRecords.stream()
+                .collect(Collectors.groupingBy(ProgressRecord::getMonth,Collectors.averagingDouble(ProgressRecord::getValue)));
+
+        return monthlyAverages;
     }
 }
