@@ -1,3 +1,19 @@
-[{"firstName":"Matej","lastName":"Sivy","password":"vesely123","gender":"Man","loginName":"user22","weight":"187","age":"25","height":"187"},{"firstName":"Janko","lastName":"Siroky","password":"janko123","gender":"Man","loginName":"tester","weight":"90","age":"10","height":"160"},
-  {"firstName":"noro","lastName":"jurik","password":"heslo123","gender":"Man","loginName":"noro","weight":"92","age":"23","height":"202"},
-  {"firstName":"ivet","lastName":"ivet","password":"ivet","gender":"Man","loginName":"ivet","weight":"92","age":"23","height":"202"}]
+[{"firstName":"-Test-",
+  "lastName":"-Test-","password":"a",
+  "gender":"Man",
+  "loginName":"stat",
+  "weight":"100","age":"25","height":"187"},
+
+  {"firstName":"Matej",
+    "lastName":"Sivy","password":"vesely123",
+    "gender":"Man",
+    "loginName":"user22",
+    "weight":"187","age":"25","height":"187"},
+  {"firstName":"Janko",
+    "lastName":"Siroky",
+    "password":"janko123",
+    "gender":"Man",
+    "loginName":"tester",
+    "weight":"90","age":"10","height":"160"},
+  {"firstName":"noro",
+    "lastName":"jurik","password":"heslo123","gender":"Man","loginName":"noro","weight":"92","age":"23","height":"202"},{"firstName":"ivet","lastName":"ivet","password":"ivet","gender":"Man","loginName":"ivet","weight":"92","age":"23","height":"202"},{"firstName":"Anina","lastName":"Anina","password":"aaa","gender":"Woman","loginName":"Anina","weight":"75","age":"24","height":"176"}]

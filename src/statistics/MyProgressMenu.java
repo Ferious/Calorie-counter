@@ -5,9 +5,14 @@ import activities.Activity;
 import database.DatabaseUtils;
 import enums.ActivityDifficulty;
 import enums.ActivityType;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MyProgressMenu extends Menu {
@@ -26,7 +31,7 @@ public class MyProgressMenu extends Menu {
         println("± 2. ->$ All Exercises                            ±");
         println("± 3. ->$ Monthly average                          ±");
         println("± 4. ->$ Progress of this month                   ±");
-        println("± 5. ->$ Calorie intake                           ±");
+        println("± 5. ->$ Calorie intake today                     ±");
         println("± X. ->$ Exit to Client Menu                      ±");
         println("±-------------------------------------------------±");
     }
@@ -39,7 +44,7 @@ public class MyProgressMenu extends Menu {
                 case "2" : displayExercise(); break;
                 case "3" : displayMonthlyAverageExercise(); break;
                 case "4" : displayThisMonthProgress(); break;
-                case "5" : displayCalorieIntake(); break;
+                case "5" : displayCalorieIntakeToday(); break;
                 case "X" : case "x" : exit(); break;
                 default  : System.err.println(String.format("%s is a unknown option", option)); break;
             }
@@ -48,8 +53,37 @@ public class MyProgressMenu extends Menu {
         }
     }
 
-    private void displayWeightChange() { //TODO
-        println("Not available");
+    private List<ProgressRecord> getLastYearWeightRecords() {
+        JSONArray records = DatabaseUtils.getWeightChange(userName);
+        List<ProgressRecord> progressRecords = new ArrayList<>();
+        if (records == null) {
+            return progressRecords;
+        }
+        LocalDate yearAgo = Statistics.getLastYear();
+        for (Object obj: records){
+            JSONObject jsonObj = (JSONObject) obj;
+            ProgressRecord record = new ProgressRecord(jsonObj, "weight");
+            if (record.getDate().isAfter(yearAgo)) {
+                progressRecords.add(record);
+            }
+        }
+        return progressRecords;
+    }
+
+    private void displayWeightChange() {
+        List<ProgressRecord> progressRecords = getLastYearWeightRecords();
+        Map<Month, Double> monthlyAverages = Statistics.getMonthlyAverageWeights(progressRecords);
+        int month = LocalDate.now().getMonthValue() + 1;
+        for (int i = 0; i < 12; i++) {
+            Month m = Month.of(month);
+            if (monthlyAverages.containsKey(m)) {
+                println(m.name() + ": " + monthlyAverages.get(m));
+            }
+            month++;
+            if (month > 12) {
+                month = 1;
+            }
+        }
     }
 
     private List<Activity> filterActivityByType(ActivityType type) {
@@ -66,7 +100,7 @@ public class MyProgressMenu extends Menu {
             return;
         }
         println(activities.get(0).getType().toString() + ":");
-        println("\tTime spend by activity: " + Statistics.timeSpendByActivity(activities));
+        println("\tTotal time spend by activity: " + Statistics.timeSpendByActivity(activities));
         println("\tNumber of performed activities: " + Statistics.numberOfActivities(activities));
 
         for (ActivityDifficulty difficulty : ActivityDifficulty.values()) {
@@ -78,17 +112,6 @@ public class MyProgressMenu extends Menu {
             println("\tTime spend by activity: " + Statistics.timeSpendByActivity(activities, difficulty));
             println("\tNumber of performed activities: " + numberOfActivitiesOfType);
         }
-/*       Cyklistika:
-        cas straveny aktivitou 12
-        pocet jazd:  3
-
-        HARD:
-        prejdene 9 km
-        pocet jazd:  2
-
-        EASY:
-        prejdene 3 km
-        pocet jazd:  1*/
     }
 
     private void displayExercise() {
@@ -123,16 +146,46 @@ public class MyProgressMenu extends Menu {
             println("\t" + type.toString());
             println("\tTime spend: " + timeSpentThisMonth);
             String averageTimeSpend = Statistics.averageTimeSpendByActivity(filterActivityByType(type),numOfActiveMonths);
-            println("\tComparison to month average: " + Statistics.differenceWithAverage(averageTimeSpend, timeSpentThisMonth));
+            println("\tComparison to month average: " + Statistics.differenceFromAverage(averageTimeSpend, timeSpentThisMonth));
         }
-/*
-        April
-                time spend: 4h
-                compared to average months: - 1h 20min*/
     }
 
-    private void displayCalorieIntake() { //TODO
-        println("Not available");
+    private Double getCalorieIntakeToday() {
+        JSONArray records = DatabaseUtils.getCalorieIntake(userName);
+        if (records == null) {
+            return 0.0;
+        }
+        Double todaysCalorieIntake = 0.0;
+        LocalDate today = LocalDate.now();
+        for (Object obj: records){
+            JSONObject jsonObj = (JSONObject) obj;
+            ProgressRecord record = new ProgressRecord(jsonObj, "calories");
+            if (record.getDate().equals(today)) {
+                todaysCalorieIntake += record.getValue();
+            }
+        }
+        return todaysCalorieIntake;
+    }
+
+    private Double getBurntCaloriesToday() {
+        List<Activity> activities = DatabaseUtils.getUserActivities(userName);
+        double caloriesBurnt = 0.0;
+        LocalDate today = LocalDate.now();
+        for (Activity activity: activities) {
+            LocalDate activityDate = Statistics.toLocalDate(activity.getDate());
+            if (activityDate.equals(today)) {
+                caloriesBurnt += activity.getCalories();
+            }
+        }
+        return caloriesBurnt;
+    }
+
+    private void displayCalorieIntakeToday() {
+        Double calorieIntake = getCalorieIntakeToday();
+        Double burntCalories = getBurntCaloriesToday();
+        println("Today's calorie intake: " + calorieIntake);
+        println("Calories burnt today: " + burntCalories);
+        println("Total: " + (calorieIntake - burntCalories));
     }
 
 }

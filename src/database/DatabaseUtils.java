@@ -260,6 +260,28 @@ public class DatabaseUtils {
         }
     }
 
+    public static JSONArray getPropertyFromProgress(String userName, String property) {
+        try {
+            JSONObject obj = parseJsonObject(PATH_TO_PROGRESS);
+            JSONObject trackingData = (JSONObject) obj.get(userName);
+            if (trackingData == null) {
+                trackingData = initializeTrackingData();
+            }
+            return (JSONArray) trackingData.get(property);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static JSONArray getWeightChange(String userName) {
+        return getPropertyFromProgress(userName, "weightChange");
+    }
+
+    public static JSONArray getCalorieIntake(String userName) {
+        return getPropertyFromProgress(userName, "calorieIntake");
+    }
+
     public static JSONObject initializeTrackingData() {
         JSONObject trackingData = new JSONObject();
         trackingData.put("weightChange", new JSONArray());
