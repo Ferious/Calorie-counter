@@ -11,6 +11,7 @@ public class MealPrinter {
         }
         if(food.get("Name") != null) {
             String typeOfFood = ChekType(Integer.parseInt((String) food.get("Type")));
+            System.out.println("Id:              " + food.get("id"));
             System.out.println("Name:            " + food.get("Name"));
             System.out.println("Type:            " + typeOfFood);
             System.out.println("Kcal:            " + food.get("Kcal"));

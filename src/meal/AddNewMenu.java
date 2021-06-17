@@ -12,7 +12,24 @@ public class AddNewMenu {
         this.userName = userName;
     }
 
-    public void addNewMEal(){
+    public static void addIntoMenu() {
+        try {
+            final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Do you wish add a meal write [yes for meal / no for drink]?");
+            String option = br.readLine();
+            if(option.equalsIgnoreCase("yes") || option.equalsIgnoreCase("y")) {
+                addNewMEal();
+            } else if(option.equalsIgnoreCase("no") || option.equalsIgnoreCase("n")){
+                addNewDrink();
+            } else {
+                throw new Exception("Unknown option!");
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public static void addNewMEal(){
         try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             Meal meal = new Meal();
@@ -41,12 +58,36 @@ public class AddNewMenu {
             meal.setIngredients("");
             DatabaseUtils.addNewMeal(meal);
             System.out.println(String.format(" Your meal %s was successfully added.", nameMeal));
-
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
 
     }
 
+    public static void addNewDrink() {
+        try {
+            final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            Drink drink = new Drink();
+            System.out.println("Name of the Drink:");
+            String drinkName = br.readLine();
+            drink.setName(drinkName);
+
+            System.out.println("Enter Calories:");
+            drink.setKcal(br.readLine());
+
+            System.out.println("Enter Proteins:");
+            drink.setProteins(br.readLine());
+
+            System.out.println("Enter fat");
+            drink.setFat(br.readLine());
+
+            drink.setDrink(true);
+
+            DatabaseUtils.addNewDrink(drink);
+            System.out.println(String.format(" Your drink %s was successfully added.", drink));
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
 }

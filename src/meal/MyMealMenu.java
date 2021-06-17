@@ -1,6 +1,7 @@
 package meal;
 
 import abstractClasses.Menu;
+import main.AdminMenu;
 
 public class MyMealMenu extends Menu {
     private String userName;
@@ -24,9 +25,9 @@ public class MyMealMenu extends Menu {
     public void handle(String option) {
         try {
             switch (option) {
-                case "1" : new GenerateMeal(userName).food_database();break;
+                case "1" : new AdminMenu().listAllMeals(); break;
                 case "2" : new GenerateMeal(userName).makeMenuforDay();break;
-                case "3" : new AddNewMenu(userName).addNewMEal();break;
+                case "3" : new AddNewMenu(userName).addIntoMenu();break;
                 case "X" : case "x" : exit(); break;
                 default  : System.err.println(String.format("%s is a unknown option", option)); break;
             }

@@ -1,6 +1,7 @@
 package database;
 
 
+import meal.Drink;
 import meal.Meal;
 import activities.Activity;
 import org.json.simple.JSONArray;
@@ -28,6 +29,7 @@ public class DatabaseUtils {
     private static final String PATH_TO_ACTIVITIES = "src/database/activities.json";
     private static final String PATH_TO_PROGRESS = "src/database/progress.json";
     private static final String PATH_TO_MEALS = "src/database/food.json";
+    private static final String PATH_TO_DRINKS = "src/database/drink.json";
     // Private constructor to avoid client applications to use constructor
     // Singleton design pattern
     private DatabaseUtils() {}
@@ -51,8 +53,10 @@ public class DatabaseUtils {
             final JSONArray users = parseJson(PATH_TO_USERS);
             for(Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
-                String strName = (String) jsonObject.get("name");
-                userNames.add(strName);
+                String strName = (String) jsonObject.get("loginName");
+                boolean isAdmin = (Boolean) jsonObject.get("isAdmin");
+                if(!isAdmin)
+                    userNames.add(strName);
             }
         } catch (IOException | ParseException e) {
             System.err.println(String.format("Problem with reading from %s", PATH_TO_USERS));
@@ -78,7 +82,7 @@ public class DatabaseUtils {
         return exist;
     }
 
-    public static boolean logInUser(String userName, String password) {
+    public static boolean logInUser(String userName, String password, boolean client) {
         boolean login = false;
         try {
             final JSONArray users = parseJson(PATH_TO_USERS);
@@ -86,8 +90,9 @@ public class DatabaseUtils {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("loginName");
                 String pass = (String) jsonObject.get("password");
-                if(strName.equalsIgnoreCase(userName) && pass.equals(password))
-                    login = true;
+                if(strName.equalsIgnoreCase(userName) && pass.equals(password)) {
+                    login = (client) ? true : (Boolean) jsonObject.get("isAdmin");
+                }
             }
         } catch (IOException | ParseException e) {
             System.err.println(String.format("Problem with reading from %s", PATH_TO_USERS));
@@ -108,6 +113,7 @@ public class DatabaseUtils {
             client.put("height", user.getHeight());
             client.put("weight", user.getWeight());
             client.put("password", user.getPassword());
+            client.put("isAdmin", false); // only admin change this flag
             array.add(client);
             FileWriter file = new FileWriter(PATH_TO_USERS);
             file.write(array.toJSONString());
@@ -307,7 +313,7 @@ public class DatabaseUtils {
             int id = obj.size() + 1;
             JSONObject addMeal = new JSONObject();
             meal.setId(id);
-            addMeal.put("id", meal.getId());
+            addMeal.put("id", String.valueOf(meal.getId()));
             addMeal.put("Name", meal.getName());
             addMeal.put("Type", meal.getType());
             addMeal.put("Kcal", meal.getKcal());
@@ -324,6 +330,79 @@ public class DatabaseUtils {
         }
     }
 
+    public static void addNewDrink(Drink drink) {
+        try {
+            JSONArray obj = parseJson(PATH_TO_DRINKS);
+            int id = obj.size() + 1;
+            JSONObject addDrink = new JSONObject();
+            drink.setId(id);
+            addDrink.put("id", String.valueOf(drink.getId()));
+            addDrink.put("Name", drink.getName());
+            addDrink.put("Type", drink.getType());
+            addDrink.put("Kcal", drink.getKcal());
+            addDrink.put("Proteins", drink.getProteins());
+            addDrink.put("Fat", drink.getFat());
+            addDrink.put("isDrink", drink.getDrink());
+            obj.add(drink);
+            FileWriter file = new FileWriter(PATH_TO_MEALS);
+            file.write(obj.toJSONString());
+            file.flush();
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static boolean deleteMealById(int id) {
+        try {
+            int resultIndex = -1;
+            final JSONArray allMeals = parseJson(PATH_TO_MEALS);
+            for(int i = 0; i < allMeals.size(); i++) {
+                JSONObject obj = (JSONObject)allMeals.get(i);
+                String value = (String) obj.get("id");
+                int mealId = Integer.parseInt(value);
+                if(mealId == id) {
+                    resultIndex = i;
+                    break;
+                }
+            }
+            if (resultIndex >= 0) {
+                flushMealsToFile(allMeals, resultIndex);
+                return true;
+            }
+        } catch (IOException | ParseException e) {
+            System.err.println(String.format("Problem with reading from %s", PATH_TO_MEALS));
+            e.printStackTrace();
+        }
+        return false;
+    }
 
+    public static boolean deleteMealByName(String name) {
+        try {
+            int resultIndex = -1;
+            final JSONArray allMeals = parseJson(PATH_TO_MEALS);
+            for(int i = 0; i < allMeals.size(); i++) {
+                JSONObject obj = (JSONObject)allMeals.get(i);
+                String mealName = (String) obj.get("Name");
+                if(mealName.equalsIgnoreCase(name)) {
+                    resultIndex = i;
+                    break;
+                }
+            }
+            if (resultIndex >= 0) {
+                flushMealsToFile(allMeals, resultIndex);
+                return true;
+            }
+        } catch (IOException | ParseException e) {
+            System.err.println(String.format("Problem with reading from %s", PATH_TO_MEALS));
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static void flushMealsToFile(JSONArray allMeals, int resultIndex) throws IOException {
+        allMeals.remove(resultIndex);
+        FileWriter file = new FileWriter(PATH_TO_MEALS);
+        file.write(allMeals.toJSONString());
+        file.flush();
+    }
 }

@@ -20,15 +20,6 @@ public class GenerateMeal {
         this.userName = userName;
     }
 
-    public void food_database(){
-        JSONArray food = DatabaseUtils.getallfood();
-        for(Object o : food){
-            JSONObject jsonObject = (JSONObject) o;
-            MealPrinter.print(jsonObject);
-
-        }
-    }
-
     public Boolean Checkinput(String number) throws Exception {
         if(!number.matches("[0-9]+")) {
             System.out.println("Wrong input! Have to be numeric! ");
@@ -85,7 +76,6 @@ public class GenerateMeal {
             Map.Entry<Integer, JSONObject> food = menu(type);
             int status = isOk(countCalories +  food.getKey(), kcal);
             if (status == 0){
-                isOk = true;
                 foods.add(food);
                 countCalories += food.getKey();
             }
@@ -97,6 +87,9 @@ public class GenerateMeal {
                 tmp += 1;
             }
             type = ((type) % 5) + 1;
+
+            if(status == 0)
+                break;
         }
         if(countCalories < MIN_NUMBER){
             foods.add(menu(5));
@@ -131,5 +124,4 @@ public class GenerateMeal {
         JSONObject he = objectList.get(random);
         return new AbstractMap.SimpleEntry<>(Integer.parseInt(he.get("Kcal").toString()), he);
     }
-
 }

@@ -14,7 +14,7 @@ public class Meal {
     public Meal(){};
 
     public boolean setName(String name) throws Exception {
-        if(!name.matches("[a-zA-Z0-9]*")){
+        if(!name.trim().matches("[a-zA-Z0-9\\s]*")){
             throw new Exception("Incorrect name of Meal!");
         }
         this.name = name;

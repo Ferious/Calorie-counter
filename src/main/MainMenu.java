@@ -28,7 +28,7 @@ public class MainMenu extends Menu {
     public void handle(String option) {
         try {
             switch (option) {
-                case "A" : case "a" : AdminMenu aM = new AdminMenu(); aM.run();break;
+                case "A" : case "a" : signAsAdmin();break;
                 case "S" : case "s" : signAsClient();break;
                 case "R" : case "r" : registerAsNewClient();break;
                 case "X" : case "x" : exit(); break;
@@ -39,23 +39,35 @@ public class MainMenu extends Menu {
         }
     }
 
-    private void signAsClient() {
+    private void signProcess(boolean client) {
         try {
             final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Enter a login name:");
             String loginName = br.readLine();
             System.out.println("Enter a password:");
             String password = br.readLine();
-            boolean login = DatabaseUtils.logInUser(loginName, password);
+            boolean login = DatabaseUtils.logInUser(loginName, password, client);
             if(login) {
                 System.out.println(String.format("Welcome %s!", loginName));
-                new GenerateMeal(loginName).run();
+                if (client) {
+                    new ClientMenu(loginName).run();
+                } else {
+                    new AdminMenu().run();
+                }
             } else {
                 throw new Exception("Login name or password is incorrect!");
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+    }
+
+    private void signAsAdmin() {
+        signProcess(false);
+    }
+
+    private void signAsClient() {
+        signProcess(true);
     }
 
     private void registerAsNewClient() {

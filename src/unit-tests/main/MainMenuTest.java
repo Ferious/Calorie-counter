@@ -1,3 +1,4 @@
+import database.DatabaseUtils;
 import org.junit.jupiter.api.Test;
 import users.User;
 
@@ -12,7 +13,21 @@ class MainMenuTest {
 
     @Test
     void signAsClient() {
+        String loginName = "ivet";
+        String password = "ivet";
+        boolean login = DatabaseUtils.logInUser(loginName, password, true);
+        assertEquals(true, login);
+        password = "iveeet";
+        login = DatabaseUtils.logInUser(loginName, password, true);
+        assertEquals(false, login);
+    }
 
+    @Test
+    void signAsAdmin() {
+        String loginName = "a";
+        String password = "a";
+        boolean login = DatabaseUtils.logInUser(loginName, password, false);
+        assertEquals(true, login);
     }
 
     @Test
@@ -27,7 +42,7 @@ class MainMenuTest {
     }
 
     @Test
-    void registerAsNewClient1() {
+    void registerAsNewClientWithBadName() {
         try {
             User user = new User();
             String loginName = "Joz#ko";
@@ -40,7 +55,7 @@ class MainMenuTest {
     }
 
     @Test
-    void registerAsNewClient2() {
+    void registerAsNewClientWithIncorrectName() {
         try {
             User user = new User();
             user.setFirstName("AA22");
@@ -50,23 +65,15 @@ class MainMenuTest {
     }
 
     @Test
-    void registerAsNewClient3() {
+    void registerAsNewClientWithIncorrectAge() {
         try {
             User user = new User();
-            user.setLastName("AA22");
+            String age = "ee44";
+            user.setAge(age);
         } catch (Exception e) {
-            assertEquals("Name can contains only alphabetical characters!",e.getMessage());
+            assertEquals("Age can contains only numeric characters!", e.getMessage());
         }
     }
 
-    @Test
-    void registerAsNewClient4() {
-        try {
-            User user = new User();
-            user.setAge("AA22");
-        } catch (Exception e) {
-            assertEquals("Age can contains only numeric characters!",e.getMessage());
-        }
-    }
 
 }
