@@ -1,6 +1,5 @@
 package database;
 
-
 import meal.Meal;
 import activities.Activity;
 import org.json.simple.JSONArray;
@@ -17,9 +16,8 @@ import java.util.List;
 
 /**
  * @author - team annonymous
- * @class - static method for working with database;
- *          visible for all application classes
- *          singleton design pattern
+ * @class - static method for working with database; visible for all application
+ *        classes singleton design pattern
  */
 
 public class DatabaseUtils {
@@ -28,9 +26,11 @@ public class DatabaseUtils {
     private static final String PATH_TO_ACTIVITIES = "src/database/activities.json";
     private static final String PATH_TO_PROGRESS = "src/database/progress.json";
     private static final String PATH_TO_MEALS = "src/database/food.json";
+
     // Private constructor to avoid client applications to use constructor
     // Singleton design pattern
-    private DatabaseUtils() {}
+    private DatabaseUtils() {
+    }
 
     public static JSONArray parseJson(String path) throws IOException, ParseException {
         final JSONParser parser = new JSONParser();
@@ -44,12 +44,12 @@ public class DatabaseUtils {
         return jsonObject;
     }
 
-    //TODO - think about interface for database operations;
-    public static List<String> getAllUsersNames(){
+    // TODO - think about interface for database operations;
+    public static List<String> getAllUsersNames() {
         final List<String> userNames = new ArrayList<>();
         try {
             final JSONArray users = parseJson(PATH_TO_USERS);
-            for(Object o : users) {
+            for (Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("name");
                 userNames.add(strName);
@@ -65,10 +65,10 @@ public class DatabaseUtils {
         boolean exist = false;
         try {
             final JSONArray users = parseJson(PATH_TO_USERS);
-            for(Object o : users) {
+            for (Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("loginName");
-                if(strName.equalsIgnoreCase(userName))
+                if (strName.equalsIgnoreCase(userName))
                     exist = true;
             }
         } catch (IOException | ParseException e) {
@@ -82,11 +82,11 @@ public class DatabaseUtils {
         boolean login = false;
         try {
             final JSONArray users = parseJson(PATH_TO_USERS);
-            for(Object o : users) {
+            for (Object o : users) {
                 JSONObject jsonObject = (JSONObject) o;
                 String strName = (String) jsonObject.get("loginName");
                 String pass = (String) jsonObject.get("password");
-                if(strName.equalsIgnoreCase(userName) && pass.equals(password))
+                if (strName.equalsIgnoreCase(userName) && pass.equals(password))
                     login = true;
             }
         } catch (IOException | ParseException e) {
@@ -123,11 +123,10 @@ public class DatabaseUtils {
             JSONArray array = (JSONArray) obj.get(userName);
             if (array != null) {
                 if (activity.getId() == 0) {
-                    activity.setId(((int)(long)((JSONObject)array.get(array.size()-1)).get("id"))+1);
+                    activity.setId(((int) (long) ((JSONObject) array.get(array.size() - 1)).get("id")) + 1);
                 }
             } else {
                 array = new JSONArray();
-
 
             }
             JSONObject newActivity = new JSONObject();
@@ -138,6 +137,7 @@ public class DatabaseUtils {
             newActivity.put("date", activity.getDate());
             newActivity.put("calories", activity.getCalories());
             newActivity.put("difficulty", activity.getDifficulty().toString());
+            newActivity.put("endActivityTime", activity.getEndActivityTime());
             array.add(newActivity);
             FileWriter file = new FileWriter(PATH_TO_ACTIVITIES);
             obj.put(userName, array);
@@ -148,7 +148,7 @@ public class DatabaseUtils {
         }
     }
 
-    public static List<Activity> getUserActivities(String user){
+    public static List<Activity> getUserActivities(String user) {
         List<Activity> result = new ArrayList<>();
         try {
             JSONObject allActivities = parseJsonObject(PATH_TO_ACTIVITIES);
@@ -167,15 +167,14 @@ public class DatabaseUtils {
         return result;
     }
 
-
-    public static void removeActivity(String userName, Activity activity){
+    public static void removeActivity(String userName, Activity activity) {
         try {
             JSONObject allActivities = parseJsonObject(PATH_TO_ACTIVITIES);
             JSONArray userActivities = (JSONArray) allActivities.get(userName);
             int resultIndex = -1;
-            for (int i = 0; i < userActivities.size(); i++){
-                JSONObject activityObject = (JSONObject)userActivities.get(i);
-                int activityId = (int)(long) activityObject.get("id");
+            for (int i = 0; i < userActivities.size(); i++) {
+                JSONObject activityObject = (JSONObject) userActivities.get(i);
+                int activityId = (int) (long) activityObject.get("id");
                 if (activity.getId() == activityId) {
                     resultIndex = i;
                     break;
@@ -290,7 +289,7 @@ public class DatabaseUtils {
         return trackingData;
     }
 
-    public static JSONArray getallfood(){
+    public static JSONArray getallfood() {
         JSONArray food = null;
         try {
             food = parseJson(PATH_TO_MEALS);
@@ -323,7 +322,5 @@ public class DatabaseUtils {
             e.printStackTrace();
         }
     }
-
-
 
 }

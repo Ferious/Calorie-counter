@@ -1,3 +1,4 @@
+package meals;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +39,7 @@ public class MyMealTest {
         boolean check = generateMeal.Checkinput("fskd");
         assertFalse(check);
     }
+
     @Test
     void checkInput6() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
@@ -51,31 +53,32 @@ public class MyMealTest {
         boolean check = generateMeal.Checkinput("098");
         assertFalse(check);
     }
+
     @Test
     void isOKTest1() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(2500, 3000);
+        int check = generateMeal.isOk(2500, 3000);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest2() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(999, 3000);
+        int check = generateMeal.isOk(999, 3000);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest3() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(998, 1100);
+        int check = generateMeal.isOk(998, 1100);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest4() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(2600, 2500);
+        int check = generateMeal.isOk(2600, 2500);
         assertEquals(check, 1);
     }
 

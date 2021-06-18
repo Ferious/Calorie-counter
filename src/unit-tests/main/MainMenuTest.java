@@ -1,3 +1,5 @@
+package main;
+
 import org.junit.jupiter.api.Test;
 import users.User;
 
@@ -5,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author - annonymous
- * @class - this is test class for testing the whole functionality of class MainMenu
+ * @class - this is test class for testing the whole functionality of class
+ *        MainMenu
  */
 
 class MainMenuTest {
@@ -22,7 +25,7 @@ class MainMenuTest {
             User user = new User();
             user.setLoginName(loginName);
         } catch (Exception e) {
-            assertEquals(String.format("User with this username [%s] already exists!", loginName),e.getMessage());
+            assertEquals(String.format("User with this username [%s] already exists!", loginName), e.getMessage());
         }
     }
 
@@ -35,7 +38,7 @@ class MainMenuTest {
             String firstName = "AA22";
             user.setFirstName(firstName);
         } catch (Exception e) {
-            assertEquals("Incorrect login name!",e.getMessage());
+            assertEquals("Incorrect login name!", e.getMessage());
         }
     }
 
@@ -45,7 +48,7 @@ class MainMenuTest {
             User user = new User();
             user.setFirstName("AA22");
         } catch (Exception e) {
-            assertEquals("Name can contains only alphabetical characters!",e.getMessage());
+            assertEquals("Name can contains only alphabetical characters!", e.getMessage());
         }
     }
 
@@ -55,7 +58,7 @@ class MainMenuTest {
             User user = new User();
             user.setLastName("AA22");
         } catch (Exception e) {
-            assertEquals("Name can contains only alphabetical characters!",e.getMessage());
+            assertEquals("Name can contains only alphabetical characters!", e.getMessage());
         }
     }
 
@@ -65,7 +68,7 @@ class MainMenuTest {
             User user = new User();
             user.setAge("AA22");
         } catch (Exception e) {
-            assertEquals("Age can contains only numeric characters!",e.getMessage());
+            assertEquals("Age can contains only numeric characters!", e.getMessage());
         }
     }
 

@@ -24,10 +24,19 @@ public class ActivityMenu extends Menu {
     public void handle(String option) {
         try {
             switch (option) {
-                case "1" : new NewActivityMenu(userName).run(); break;
-                case "2" : new MyActivitiesMenu(userName).run(); break;
-                case "X" : case "x" : exit(); break;
-                default  : System.err.println(String.format("%s is a unknown option", option)); break;
+                case "1":
+                    new NewActivityMenu(userName).run();
+                    break;
+                case "2":
+                    new MyActivitiesMenu(userName).run();
+                    break;
+                case "X":
+                case "x":
+                    exit();
+                    break;
+                default:
+                    System.err.println(String.format("%s is a unknown option", option));
+                    break;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
