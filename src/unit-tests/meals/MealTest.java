@@ -1,6 +1,7 @@
+package meals;
+
 import meal.Meal;
 import org.junit.jupiter.api.Test;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 

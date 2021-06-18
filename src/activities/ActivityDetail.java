@@ -30,9 +30,10 @@ public class ActivityDetail extends Menu {
         System.out.println("Burned kcal: " + activity.getCalories());
         System.out.println("Time: " + activity.getFormattedTime());
         System.out.println("Date: " + activity.getDate());
-        String fillBefore = new String(new char[25-Math.round((float)activity.getName().length()/(float)2)]).replace("\0","-");
-        String fillAfter = new String(new char[24-activity.getName().length()/2]).replace("\0","-");
-        System.out.println("±"+fillBefore+ activity.getName() + fillAfter+"±");
+        String fillBefore = new String(new char[25 - Math.round((float) activity.getName().length() / (float) 2)])
+                .replace("\0", "-");
+        String fillAfter = new String(new char[24 - activity.getName().length() / 2]).replace("\0", "-");
+        System.out.println("±" + fillBefore + activity.getName() + fillAfter + "±");
         System.out.println("± D. -> Delete                                    ±");
         System.out.println("± X. -> Exit                                      ±");
         System.out.println("±-------------------------------------------------±");
@@ -41,11 +42,20 @@ public class ActivityDetail extends Menu {
     @Override
     public void handle(String option) {
         try {
-                switch (option){
-                    case "D" : case "d" : delete(); exit(); break;
-                    case "X" : case "x" : exit(); break;
-                    default  : System.err.println(String.format("%s is a unknown option", option)); break;
-                }
+            switch (option) {
+                case "D":
+                case "d":
+                    delete();
+                    exit();
+                    break;
+                case "X":
+                case "x":
+                    exit();
+                    break;
+                default:
+                    System.err.println(String.format("%s is a unknown option", option));
+                    break;
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
