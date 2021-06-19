@@ -207,7 +207,7 @@ class ActivityTest {
         long lastActivityTime = 9223372036811575857l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_HALF_DAY, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_DAY, notification);
     }
 
     @Test
@@ -217,7 +217,7 @@ class ActivityTest {
         long lastActivityTime = 9223372036768375808l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_DAY, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_DAY, notification);
     }
 
     @Test
@@ -227,7 +227,7 @@ class ActivityTest {
         long lastActivityTime = 9223372036552375808l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_HALF_WEEK, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_WEEK, notification);
     }
 
     @Test
@@ -237,7 +237,7 @@ class ActivityTest {
         long lastActivityTime = 9223372036249975808l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_WEEK, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_WEEK, notification);
     }
 
     @Test
@@ -247,7 +247,7 @@ class ActivityTest {
         long lastActivityTime = 9223372035645175808l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_HALF_MONTH, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_MONTH, notification);
     }
 
     @Test
@@ -257,7 +257,7 @@ class ActivityTest {
         long lastActivityTime = 9223372034262775808l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_MONTH, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_MONTH, notification);
     }
 
     @Test
@@ -267,7 +267,7 @@ class ActivityTest {
         long lastActivityTime = 9223372034262775806l;
         String notification = menu.printActivityNotification(lastActivityTime, timeNow);
         ActivityNotifications notificationOfActivity = new ActivityNotifications();
-        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_MANY_DAYS, notification);
+        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_MONTH, notification);
     }
 
 }
