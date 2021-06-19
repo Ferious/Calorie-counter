@@ -115,31 +115,31 @@ public class MainMenu extends Menu {
 
     public String printActivityNotification(long lastActivityTime, long timeNow) {
         ActivityNotifications notifications = new ActivityNotifications();
-        if (lastActivityTime == 0) {
+        if (lastActivityTime == 0l) {
             return notifications.NOTIFICATION_BEFORE_FIRST_ACTIVITY;
         }
 
         long noActivityTime = timeNow - lastActivityTime;
 
         if (noActivityTime < 43200000l) {
-            return notifications.NOTIFICATION_AFTER_HALF_DAY;
+            return notifications.NOTIFICATION_BEFORE_HALF_DAY;
         }
         if (noActivityTime < 86400000l) {
-            return notifications.NOTIFICATION_AFTER_DAY;
+            return notifications.NOTIFICATION_BEFORE_DAY;
         }
         if (noActivityTime < 302400000l) {
-            return notifications.NOTIFICATION_AFTER_HALF_WEEK;
+            return notifications.NOTIFICATION_BEFORE_HALF_WEEK;
         }
         if (noActivityTime < 604800000l) {
-            return notifications.NOTIFICATION_AFTER_WEEK;
+            return notifications.NOTIFICATION_BEFORE_WEEK;
         }
         if (noActivityTime < 1209600000l) {
-            return notifications.NOTIFICATION_AFTER_HALF_MONTH;
+            return notifications.NOTIFICATION_BEFORE_HALF_MONTH;
         }
         if (noActivityTime < 2592000000l) {
-            return notifications.NOTIFICATION_AFTER_MONTH;
+            return notifications.NOTIFICATION_BEFORE_MONTH;
         }
-        return notifications.NOTIFICATION_AFTER_MANY_DAYS;
+        return notifications.NOTIFICATION_AFTER_MONTH;
     }
 
     public long getLastActivityTime(String loginName) {

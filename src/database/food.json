@@ -1,1 +1,712 @@
-[{"Kcal":"452","Proteins":"37","isDrink":false,"Type":"1","Fat":"21","ingredients":"","id":"1","Name":"Hard-boiled eggs with pastries and vegetables"},{"Kcal":"387","Proteins":"33.85","isDrink":false,"Type":"1","Fat":"8.34","ingredients":"","id":"2","Name":"Spicy cottage cheese"},{"Kcal":"261","Proteins":"18.70","isDrink":false,"Type":"1","Fat":"17.86","ingredients":"","id":"3","Name":"Tofu with basil and wholemeal bread"},{"Kcal":"354","Proteins":"31.80","isDrink":false,"Type":"1","Fat":"13.325","ingredients":"","id":"4","Name":"Ham and eggs"},{"Kcal":"297","Proteins":"31.49","isDrink":false,"Type":"1","Fat":"7.76","ingredients":"","id":"5","Name":"Jogurt s tvarohom a ovocim"},{"Kcal":"440","Proteins":"29.63","isDrink":false,"Type":"1","Fat":"23.41","ingredients":"","id":"6","Name":"Zucchini with egg"},{"Kcal":"421","Proteins":"42.16","isDrink":false,"Type":"1","Fat":"16.48","ingredients":"","id":"7","Name":"Cottage cheese with pesto, vegetables and pastries"},{"Kcal":"436","Proteins":"36.16","isDrink":false,"Type":"1","Fat":"18.35","ingredients":"","id":"8","Name":"Stuffed roasted peppers with cheese"},{"Kcal":"332","Proteins":"26.39","isDrink":false,"Type":"1","Fat":"13.01","ingredients":"","id":"9","Name":"Baguette with ham and cheese"},{"Kcal":"392","Proteins":"39.055","isDrink":false,"Type":"1","Fat":"14.31","ingredients":"","id":"10","Name":"Tvarohova pochutka s vajickom, kokosom a ovocim"},{"Kcal":"365","Proteins":"30.66","isDrink":false,"Type":"1","Fat":"19.70","ingredients":"","id":"11","Name":"Banana pancakes"},{"Kcal":"343","Proteins":"19.27","isDrink":false,"Type":"1","Fat":"18.68","ingredients":"","id":"12","Name":"Scrambled eggs  with vegetables"},{"Kcal":"385","Proteins":"21.23","isDrink":false,"Type":"1","Fat":"21.32","ingredients":"","id":"13","Name":"Sandwich with egg spread"},{"Kcal":"492","Proteins":"45.423","isDrink":false,"Type":"1","Fat":"20.01","ingredients":"","id":"14","Name":"Omelette with sheep cheese"},{"Kcal":"308","Proteins":"18.36","isDrink":false,"Type":"1","Fat":"10.98","ingredients":"","id":"15","Name":"sheep cheese spread with vegetables and pastries"},{"Kcal":"413","Proteins":"40.77","isDrink":false,"Type":"1","Fat":"13.65","ingredients":"","id":"16","Name":"Olomouc mini cheese with pastry and vegetables"},{"Kcal":"450","Proteins":"32.247","isDrink":false,"Type":"2","Fat":"24.67","ingredients":"","id":"17","Name":"Salmon with mushroom sauce"},{"Kcal":"356","Proteins":"33.63","isDrink":false,"Type":"2","Fat":"14.735","ingredients":"","id":"18","Name":"Chicken meat on marinade"},{"Kcal":"332","Proteins":"34.03","isDrink":false,"Type":"2","Fat":"12.55","ingredients":"","id":"19","Name":"Pork with mushrooms"},{"Kcal":"307","Proteins":"35.24","isDrink":false,"Type":"2","Fat":"9.86","ingredients":"","id":"20","Name":"French potatoes"},{"Kcal":"435","Proteins":"35.64","isDrink":false,"Type":"2","Fat":"18.03","ingredients":"","id":"21","Name":"Asian noodles with meat"},{"Kcal":"366","Proteins":"30.67","isDrink":false,"Type":"2","Fat":"19.07","ingredients":"","id":"22","Name":"Crumpets"},{"Kcal":"413","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"23","Name":"Beef stew"},{"Kcal":"234","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"24","Name":"gfgdhd "},{"Kcal":"560","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"25","Name":"AAAAAAAAAAAAAAAAA"},{"Kcal":"450","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"26","Name":"BBBB"},{"Kcal":"500","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"27","Name":"CCCCCCC"},{"Kcal":"360","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"28","Name":"ODDDDDDDD"},{"Kcal":"470","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"29","Name":"EEEEEEE"},{"Kcal":"390","Proteins":"40.77","isDrink":false,"Type":"2","Fat":"13.65","ingredients":"","id":"30","Name":"FFFFFFFF"},{"Kcal":"315","Proteins":"23.7","isDrink":false,"Type":"3","Fat":"8.9","ingredients":"","id":"31","Name":"Healthy Quinoa Chicken Curry Bowls"},{"Kcal":"118","Proteins":"16.4","isDrink":false,"Type":"3","Fat":"5.4","ingredients":"","id":"32","Name":"Spanish Mackerel"},{"Kcal":"177","Proteins":"17.4","isDrink":false,"Type":"3","Fat":"11.41","ingredients":"","id":"33","Name":"Farmed Atlantic Salmon"},{"Kcal":"290","Proteins":"40.77","isDrink":false,"Type":"3","Fat":"13.65","ingredients":"","id":"34","Name":"Chicken Cutlets with Sun-Dried Tomato Cream Sauce"},{"Kcal":"195","Proteins":"31","isDrink":false,"Type":"3","Fat":"6","ingredients":"","id":"35","Name":"Grilled chicken with spinach and melted mozzarella"},{"Kcal":"381","Proteins":"51","isDrink":false,"Type":"3","Fat":"9.5","ingredients":"","id":"36","Name":"Grilled bourbon chicken"},{"Kcal":"282","Proteins":"38.5","isDrink":false,"Type":"3","Fat":"11","ingredients":"","id":"37","Name":"Grilled bruschetta chicken"},{"Kcal":"365","Proteins":"29","isDrink":false,"Type":"3","Fat":"19.5","ingredients":"","id":"38","Name":"Houston's grilled chicken salat"},{"Kcal":"169","Proteins":"25.5","isDrink":false,"Type":"3","Fat":"5.5","ingredients":"","id":"39","Name":"Classic chicken salat"},{"Kcal":"165","Proteins":"23","isDrink":false,"Type":"3","Fat":"6","ingredients":"","id":"40","Name":"Cilanstro chicken salat"},{"Kcal":"414","Proteins":"17","isDrink":false,"Type":"3","Fat":"26.5","ingredients":"","id":"41","Name":"Hearts of palm noodle peanut stir fry"},{"Kcal":"92","Proteins":"1","isDrink":false,"Type":"3","Fat":"9","ingredients":"","id":"42","Name":"Sauteed zucchuni with plum potatoes"},{"Kcal":"114","Proteins":"31.5","isDrink":false,"Type":"3","Fat":"1","ingredients":"","id":"43","Name":"Grilled crab legs"},{"Kcal":"226","Proteins":"32.5","isDrink":false,"Type":"3","Fat":"10","ingredients":"","id":"44","Name":"Air fryed turkey breast"},{"Kcal":"127","Proteins":"3","isDrink":false,"Type":"3","Fat":"7","ingredients":"","id":"45","Name":"Eggplant and tomato sauce"},{"Kcal":"164","Proteins":"2.5","isDrink":false,"Type":"3","Fat":"0.5","ingredients":"","id":"46","Name":"Baked sweet potato"},{"Kcal":"329","Proteins":"25.5","isDrink":false,"Type":"3","Fat":"20.5","ingredients":"","id":"47","Name":"Salmon avocado salat"},{"Kcal":"268","Proteins":"41","isDrink":false,"Type":"3","Fat":"7.5","ingredients":"","id":"48","Name":"Chicken and asparagus lemon stir fry"},{"Kcal":"185","Proteins":"9.5","isDrink":false,"Type":"3","Fat":"15.5","ingredients":"","id":"49","Name":"Classic egg salat"},{"Kcal":"98","Proteins":"14.4","isDrink":false,"Type":"5","Fat":"0.19","ingredients":"","id":"50","Name":"Yogurt and Berries"},{"Kcal":"138","Proteins":"3.15","isDrink":false,"Type":"4","Fat":"12.68","ingredients":"","id":"51","Name":"Oat & Date Energy Bites"},{"Kcal":"249","Proteins":"4.13","isDrink":false,"Type":"4","Fat":"14.82","ingredients":"","id":"52","Name":"Chocolate and Walnut-Covered Banana Bites"},{"Kcal":"365","Proteins":"27.34","isDrink":false,"Type":"4","Fat":"25.96","ingredients":"","id":"53","Name":"Goat Cheese Stuffed Peppers"},{"Kcal":"286","Proteins":"14.5","isDrink":false,"Type":"4","Fat":"11","ingredients":"","id":"54","Name":"Protein smoothe bowl"},{"Kcal":"125","Proteins":"8.5","isDrink":false,"Type":"4","Fat":"4.5","ingredients":"","id":"55","Name":"High protein oat waffles"},{"Kcal":"221","Proteins":"21","isDrink":false,"Type":"4","Fat":"8","ingredients":"","id":"56","Name":"Savory cottage cheese bowl"},{"Kcal":"66","Proteins":"0.5","isDrink":false,"Type":"5","Fat":"0","ingredients":"","id":"57","Name":"Zero - proof jalapeno paloma"},{"Kcal":"137","Proteins":"1.5","isDrink":false,"Type":"4","Fat":"0.5","ingredients":"","id":"58","Name":"3 - ingredient baked bananas"},{"Kcal":"69","Proteins":"1.5","isDrink":false,"Type":"5","Fat":"2.5","ingredients":"","id":"59","Name":"Roasted dadishes with onions"},{"Kcal":"221","Proteins":"2","isDrink":false,"Type":"4","Fat":"5.5","ingredients":"","id":"60","Name":"Apple cranberry crumble"},{"Kcal":"206","Proteins":"4","isDrink":false,"Type":"4","Fat":"8.5","ingredients":"","id":"61","Name":"Smashed sweet potatoes"},{"Kcal":"293","Proteins":"15","isDrink":false,"Type":"4","Fat":"12.5","ingredients":"","id":"62","Name":"Detox vegetable soup"},{"Kcal":"25","Proteins":"0.5","isDrink":false,"Type":"5","Fat":"0","ingredients":"","id":"63","Name":"Citrus immunity shot"},{"Kcal":"256","Proteins":"12","isDrink":false,"Type":"4","Fat":"7.5","ingredients":"","id":"64","Name":"Whipped ricatta toast with roasted tomatoes"},{"Kcal":"203","Proteins":"2","isDrink":false,"Type":"4","Fat":"7","ingredients":"","id":"65","Name":"Blueberry peach crips"},{"Kcal":"109","Proteins":"0.5","isDrink":false,"Type":"5","Fat":"0.5","ingredients":"","id":"66","Name":"Boozy watermelone lime granita"},{"Kcal":"272","Proteins":"9.5","isDrink":false,"Type":"4","Fat":"4.5","ingredients":"","id":"67","Name":"Banana pancake cereal"},{"Kcal":"198","Proteins":"3","isDrink":false,"Type":"4","Fat":"6.5","ingredients":"","id":"68","Name":"Skinny hummingbird cupcaked"},{"Kcal":"215","Proteins":"8","isDrink":false,"Type":"4","Fat":"6","ingredients":"","id":"69","Name":"Tropical mango blueberry lassi"},{"Kcal":"110","Proteins":"2","isDrink":false,"Type":"4","Fat":"0.5","ingredients":"","id":"70","Name":"Green apple lemon cucumber ginger smoothie"},{"Kcal":"123","Proteins":"123","isDrink":false,"Type":"1","Fat":"123","ingredients":"","id":71,"Name":"123"}]
+[
+    {
+        "Kcal": "452",
+        "Proteins": "37",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "21",
+        "ingredients": "",
+        "id": "1",
+        "Name": "Hard-boiled eggs with pastries and vegetables"
+    },
+    {
+        "Kcal": "387",
+        "Proteins": "33.85",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "8.34",
+        "ingredients": "",
+        "id": "2",
+        "Name": "Spicy cottage cheese"
+    },
+    {
+        "Kcal": "261",
+        "Proteins": "18.70",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "17.86",
+        "ingredients": "",
+        "id": "3",
+        "Name": "Tofu with basil and wholemeal bread"
+    },
+    {
+        "Kcal": "354",
+        "Proteins": "31.80",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "13.325",
+        "ingredients": "",
+        "id": "4",
+        "Name": "Ham and eggs"
+    },
+    {
+        "Kcal": "297",
+        "Proteins": "31.49",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "7.76",
+        "ingredients": "",
+        "id": "5",
+        "Name": "Jogurt s tvarohom a ovocim"
+    },
+    {
+        "Kcal": "440",
+        "Proteins": "29.63",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "23.41",
+        "ingredients": "",
+        "id": "6",
+        "Name": "Zucchini with egg"
+    },
+    {
+        "Kcal": "421",
+        "Proteins": "42.16",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "16.48",
+        "ingredients": "",
+        "id": "7",
+        "Name": "Cottage cheese with pesto, vegetables and pastries"
+    },
+    {
+        "Kcal": "436",
+        "Proteins": "36.16",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "18.35",
+        "ingredients": "",
+        "id": "8",
+        "Name": "Stuffed roasted peppers with cheese"
+    },
+    {
+        "Kcal": "332",
+        "Proteins": "26.39",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "13.01",
+        "ingredients": "",
+        "id": "9",
+        "Name": "Baguette with ham and cheese"
+    },
+    {
+        "Kcal": "392",
+        "Proteins": "39.055",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "14.31",
+        "ingredients": "",
+        "id": "10",
+        "Name": "Tvarohova pochutka s vajickom, kokosom a ovocim"
+    },
+    {
+        "Kcal": "365",
+        "Proteins": "30.66",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "19.70",
+        "ingredients": "",
+        "id": "11",
+        "Name": "Banana pancakes"
+    },
+    {
+        "Kcal": "343",
+        "Proteins": "19.27",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "18.68",
+        "ingredients": "",
+        "id": "12",
+        "Name": "Scrambled eggs  with vegetables"
+    },
+    {
+        "Kcal": "385",
+        "Proteins": "21.23",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "21.32",
+        "ingredients": "",
+        "id": "13",
+        "Name": "Sandwich with egg spread"
+    },
+    {
+        "Kcal": "492",
+        "Proteins": "45.423",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "20.01",
+        "ingredients": "",
+        "id": "14",
+        "Name": "Omelette with sheep cheese"
+    },
+    {
+        "Kcal": "308",
+        "Proteins": "18.36",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "10.98",
+        "ingredients": "",
+        "id": "15",
+        "Name": "sheep cheese spread with vegetables and pastries"
+    },
+    {
+        "Kcal": "413",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "16",
+        "Name": "Olomouc mini cheese with pastry and vegetables"
+    },
+    {
+        "Kcal": "450",
+        "Proteins": "32.247",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "24.67",
+        "ingredients": "",
+        "id": "17",
+        "Name": "Salmon with mushroom sauce"
+    },
+    {
+        "Kcal": "356",
+        "Proteins": "33.63",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "14.735",
+        "ingredients": "",
+        "id": "18",
+        "Name": "Chicken meat on marinade"
+    },
+    {
+        "Kcal": "332",
+        "Proteins": "34.03",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "12.55",
+        "ingredients": "",
+        "id": "19",
+        "Name": "Pork with mushrooms"
+    },
+    {
+        "Kcal": "307",
+        "Proteins": "35.24",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "9.86",
+        "ingredients": "",
+        "id": "20",
+        "Name": "French potatoes"
+    },
+    {
+        "Kcal": "435",
+        "Proteins": "35.64",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "18.03",
+        "ingredients": "",
+        "id": "21",
+        "Name": "Asian noodles with meat"
+    },
+    {
+        "Kcal": "366",
+        "Proteins": "30.67",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "19.07",
+        "ingredients": "",
+        "id": "22",
+        "Name": "Crumpets"
+    },
+    {
+        "Kcal": "413",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "23",
+        "Name": "Beef stew"
+    },
+    {
+        "Kcal": "234",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "24",
+        "Name": "gfgdhd "
+    },
+    {
+        "Kcal": "560",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "25",
+        "Name": "AAAAAAAAAAAAAAAAA"
+    },
+    {
+        "Kcal": "450",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "26",
+        "Name": "BBBB"
+    },
+    {
+        "Kcal": "500",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "27",
+        "Name": "CCCCCCC"
+    },
+    {
+        "Kcal": "360",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "28",
+        "Name": "ODDDDDDDD"
+    },
+    {
+        "Kcal": "470",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "29",
+        "Name": "EEEEEEE"
+    },
+    {
+        "Kcal": "390",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "2",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "30",
+        "Name": "FFFFFFFF"
+    },
+    {
+        "Kcal": "315",
+        "Proteins": "23.7",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "8.9",
+        "ingredients": "",
+        "id": "31",
+        "Name": "Healthy Quinoa Chicken Curry Bowls"
+    },
+    {
+        "Kcal": "118",
+        "Proteins": "16.4",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "5.4",
+        "ingredients": "",
+        "id": "32",
+        "Name": "Spanish Mackerel"
+    },
+    {
+        "Kcal": "177",
+        "Proteins": "17.4",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "11.41",
+        "ingredients": "",
+        "id": "33",
+        "Name": "Farmed Atlantic Salmon"
+    },
+    {
+        "Kcal": "290",
+        "Proteins": "40.77",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "13.65",
+        "ingredients": "",
+        "id": "34",
+        "Name": "Chicken Cutlets with Sun-Dried Tomato Cream Sauce"
+    },
+    {
+        "Kcal": "195",
+        "Proteins": "31",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "6",
+        "ingredients": "",
+        "id": "35",
+        "Name": "Grilled chicken with spinach and melted mozzarella"
+    },
+    {
+        "Kcal": "381",
+        "Proteins": "51",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "9.5",
+        "ingredients": "",
+        "id": "36",
+        "Name": "Grilled bourbon chicken"
+    },
+    {
+        "Kcal": "282",
+        "Proteins": "38.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "11",
+        "ingredients": "",
+        "id": "37",
+        "Name": "Grilled bruschetta chicken"
+    },
+    {
+        "Kcal": "365",
+        "Proteins": "29",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "19.5",
+        "ingredients": "",
+        "id": "38",
+        "Name": "Houston's grilled chicken salat"
+    },
+    {
+        "Kcal": "169",
+        "Proteins": "25.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "5.5",
+        "ingredients": "",
+        "id": "39",
+        "Name": "Classic chicken salat"
+    },
+    {
+        "Kcal": "165",
+        "Proteins": "23",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "6",
+        "ingredients": "",
+        "id": "40",
+        "Name": "Cilanstro chicken salat"
+    },
+    {
+        "Kcal": "414",
+        "Proteins": "17",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "26.5",
+        "ingredients": "",
+        "id": "41",
+        "Name": "Hearts of palm noodle peanut stir fry"
+    },
+    {
+        "Kcal": "92",
+        "Proteins": "1",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "9",
+        "ingredients": "",
+        "id": "42",
+        "Name": "Sauteed zucchuni with plum potatoes"
+    },
+    {
+        "Kcal": "114",
+        "Proteins": "31.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "1",
+        "ingredients": "",
+        "id": "43",
+        "Name": "Grilled crab legs"
+    },
+    {
+        "Kcal": "226",
+        "Proteins": "32.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "10",
+        "ingredients": "",
+        "id": "44",
+        "Name": "Air fryed turkey breast"
+    },
+    {
+        "Kcal": "127",
+        "Proteins": "3",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "7",
+        "ingredients": "",
+        "id": "45",
+        "Name": "Eggplant and tomato sauce"
+    },
+    {
+        "Kcal": "164",
+        "Proteins": "2.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "0.5",
+        "ingredients": "",
+        "id": "46",
+        "Name": "Baked sweet potato"
+    },
+    {
+        "Kcal": "329",
+        "Proteins": "25.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "20.5",
+        "ingredients": "",
+        "id": "47",
+        "Name": "Salmon avocado salat"
+    },
+    {
+        "Kcal": "268",
+        "Proteins": "41",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "7.5",
+        "ingredients": "",
+        "id": "48",
+        "Name": "Chicken and asparagus lemon stir fry"
+    },
+    {
+        "Kcal": "185",
+        "Proteins": "9.5",
+        "isDrink": false,
+        "Type": "3",
+        "Fat": "15.5",
+        "ingredients": "",
+        "id": "49",
+        "Name": "Classic egg salat"
+    },
+    {
+        "Kcal": "98",
+        "Proteins": "14.4",
+        "isDrink": false,
+        "Type": "5",
+        "Fat": "0.19",
+        "ingredients": "",
+        "id": "50",
+        "Name": "Yogurt and Berries"
+    },
+    {
+        "Kcal": "138",
+        "Proteins": "3.15",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "12.68",
+        "ingredients": "",
+        "id": "51",
+        "Name": "Oat & Date Energy Bites"
+    },
+    {
+        "Kcal": "249",
+        "Proteins": "4.13",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "14.82",
+        "ingredients": "",
+        "id": "52",
+        "Name": "Chocolate and Walnut-Covered Banana Bites"
+    },
+    {
+        "Kcal": "365",
+        "Proteins": "27.34",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "25.96",
+        "ingredients": "",
+        "id": "53",
+        "Name": "Goat Cheese Stuffed Peppers"
+    },
+    {
+        "Kcal": "286",
+        "Proteins": "14.5",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "11",
+        "ingredients": "",
+        "id": "54",
+        "Name": "Protein smoothe bowl"
+    },
+    {
+        "Kcal": "125",
+        "Proteins": "8.5",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "4.5",
+        "ingredients": "",
+        "id": "55",
+        "Name": "High protein oat waffles"
+    },
+    {
+        "Kcal": "221",
+        "Proteins": "21",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "8",
+        "ingredients": "",
+        "id": "56",
+        "Name": "Savory cottage cheese bowl"
+    },
+    {
+        "Kcal": "66",
+        "Proteins": "0.5",
+        "isDrink": false,
+        "Type": "5",
+        "Fat": "0",
+        "ingredients": "",
+        "id": "57",
+        "Name": "Zero - proof jalapeno paloma"
+    },
+    {
+        "Kcal": "137",
+        "Proteins": "1.5",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "0.5",
+        "ingredients": "",
+        "id": "58",
+        "Name": "3 - ingredient baked bananas"
+    },
+    {
+        "Kcal": "69",
+        "Proteins": "1.5",
+        "isDrink": false,
+        "Type": "5",
+        "Fat": "2.5",
+        "ingredients": "",
+        "id": "59",
+        "Name": "Roasted dadishes with onions"
+    },
+    {
+        "Kcal": "221",
+        "Proteins": "2",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "5.5",
+        "ingredients": "",
+        "id": "60",
+        "Name": "Apple cranberry crumble"
+    },
+    {
+        "Kcal": "206",
+        "Proteins": "4",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "8.5",
+        "ingredients": "",
+        "id": "61",
+        "Name": "Smashed sweet potatoes"
+    },
+    {
+        "Kcal": "293",
+        "Proteins": "15",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "12.5",
+        "ingredients": "",
+        "id": "62",
+        "Name": "Detox vegetable soup"
+    },
+    {
+        "Kcal": "25",
+        "Proteins": "0.5",
+        "isDrink": false,
+        "Type": "5",
+        "Fat": "0",
+        "ingredients": "",
+        "id": "63",
+        "Name": "Citrus immunity shot"
+    },
+    {
+        "Kcal": "256",
+        "Proteins": "12",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "7.5",
+        "ingredients": "",
+        "id": "64",
+        "Name": "Whipped ricatta toast with roasted tomatoes"
+    },
+    {
+        "Kcal": "203",
+        "Proteins": "2",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "7",
+        "ingredients": "",
+        "id": "65",
+        "Name": "Blueberry peach crips"
+    },
+    {
+        "Kcal": "109",
+        "Proteins": "0.5",
+        "isDrink": false,
+        "Type": "5",
+        "Fat": "0.5",
+        "ingredients": "",
+        "id": "66",
+        "Name": "Boozy watermelone lime granita"
+    },
+    {
+        "Kcal": "272",
+        "Proteins": "9.5",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "4.5",
+        "ingredients": "",
+        "id": "67",
+        "Name": "Banana pancake cereal"
+    },
+    {
+        "Kcal": "198",
+        "Proteins": "3",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "6.5",
+        "ingredients": "",
+        "id": "68",
+        "Name": "Skinny hummingbird cupcaked"
+    },
+    {
+        "Kcal": "215",
+        "Proteins": "8",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "6",
+        "ingredients": "",
+        "id": "69",
+        "Name": "Tropical mango blueberry lassi"
+    },
+    {
+        "Kcal": "110",
+        "Proteins": "2",
+        "isDrink": false,
+        "Type": "4",
+        "Fat": "0.5",
+        "ingredients": "",
+        "id": "70",
+        "Name": "Green apple lemon cucumber ginger smoothie"
+    },
+    {
+        "Kcal": "123",
+        "Proteins": "123",
+        "isDrink": false,
+        "Type": "1",
+        "Fat": "123",
+        "ingredients": "",
+        "id": 71,
+        "Name": "123"
+    }
+]

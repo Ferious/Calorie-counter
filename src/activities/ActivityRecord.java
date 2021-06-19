@@ -149,9 +149,9 @@ public class ActivityRecord extends Menu {
     }
 
     public void save() {
+        activity.setEndActivityTime(System.currentTimeMillis());
         DatabaseUtils.writeNewActivity(activity, userName);
         System.out.println("Well done! Keep Moving!");
-        activity.setEndActivityTime(System.currentTimeMillis());
         exit();
     }
 
