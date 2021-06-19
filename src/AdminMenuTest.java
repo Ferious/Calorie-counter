@@ -1,9 +1,8 @@
-package main;
-
 import database.DatabaseUtils;
 import meal.Meal;
 import org.junit.jupiter.api.Test;
 import users.User;
+import main.AdminMenu;
 
 import java.io.IOException;
 
@@ -11,7 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author - annonymous
- * @class - this is test class for testing the whole functionality of class MainMenu
+ * @class - this is test class for testing the whole functionality of class
+ *        MainMenu
  */
 
 class AdminMenuTest {
@@ -97,6 +97,4 @@ class AdminMenuTest {
         String message = ad.deleteMealByName(mealName);
         assertEquals(String.format("Meal with name %s was successfully deleted!", mealName), message);
     }
-
-
 }

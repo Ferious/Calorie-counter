@@ -6,6 +6,7 @@ import enums.ActivityState;
 import enums.ActivityType;
 import org.junit.jupiter.api.Test;
 import users.User;
+import main.MainMenu;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -174,7 +175,7 @@ class ActivityTest {
         List<Activity> activities = DatabaseUtils.getUserActivities("test");
         Predicate<Activity> byId = activity -> activity.getId() == testingId;
         List<Activity> testingActivity = activities.stream().filter(byId).collect(Collectors.toList());
-        ActivityDetail detail = new ActivityDetail(testingActivity.get(0), "test") ;
+        ActivityDetail detail = new ActivityDetail(testingActivity.get(0), "test");
         assertEquals(activityRecord.activity.getId(), detail.activity.getId());
         assertEquals(activityRecord.activity.getMET(), detail.activity.getMET());
         assertEquals(activityRecord.activity.getTime(), detail.activity.getTime());
@@ -190,4 +191,83 @@ class ActivityTest {
         assertEquals(0, testingActivity.size());
     }
 
+    @Test
+    void checkNotificationFirst() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 0l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_FIRST_ACTIVITY, notification);
+    }
+
+    @Test
+    void checkNotificationHalfDay() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372036811575857l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_DAY, notification);
+    }
+
+    @Test
+    void checkNotificationDay() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372036768375808l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_DAY, notification);
+    }
+
+    @Test
+    void checkNotificationHalfWeek() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372036552375808l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_WEEK, notification);
+    }
+
+    @Test
+    void checkNotificationWeek() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372036249975808l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_WEEK, notification);
+    }
+
+    @Test
+    void checkNotificationHalfMonth() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372035645175808l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_HALF_MONTH, notification);
+    }
+
+    @Test
+    void checkNotificationMonth() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372034262775808l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_BEFORE_MONTH, notification);
+    }
+
+    @Test
+    void checkNotificationManyDays() {
+        MainMenu menu = new MainMenu();
+        long timeNow = 9223372036854775807l;
+        long lastActivityTime = 9223372034262775806l;
+        String notification = menu.printActivityNotification(lastActivityTime, timeNow);
+        ActivityNotifications notificationOfActivity = new ActivityNotifications();
+        assertEquals(notificationOfActivity.NOTIFICATION_AFTER_MONTH, notification);
+    }
 }

@@ -1,7 +1,106 @@
-{"stat":[{"date":"10.06.2021","difficulty":"EASY","name":"test","id":0,"time":113145,"calories":0,"type":"Cycling"},
-  {"date":"09.06.2021","difficulty":"HARD","name":"testRun","id":1,"time":110592,"calories":19,"type":"Running"},
-  {"date":"05.06.2021","difficulty":"MODERATE","name":"testWorkout","id":2,"time":122327,"calories":14,"type":"Workout"},
-  {"date":"01.06.2021","difficulty":"MODERATE","name":"testCycling","id":3,"time":264864,"calories":62,"type":"Running"},
-  {"date":"04.04.2021","difficulty":"HARD","name":"testCycling1","id":4,"time":2648649,"calories":45,"type":"Running"}],
-
-  "test":[{"date":"23.04.2021","difficulty":"EASY","name":"fixed","id":0,"time":47620,"calories":0,"type":"Workout"}],"tester":[{"date":"23.04.2021","difficulty":"EASY","name":"First Activity","id":0,"time":47620,"calories":0,"type":"Workout"},{"date":"23.04.2021","difficulty":"MODERATE","name":"Secooond","id":1,"time":66400,"calories":15,"type":"Running"},{"date":"23.04.2021","difficulty":"EASY","name":"calorie test","id":2,"time":64819,"calories":6,"type":"Workout"}],"Anina":[{"date":"10.06.2021","difficulty":"EASY","name":"test","id":0,"time":11314,"calories":0,"type":"Cycling"}],"noro":[{"date":"09.04.2021","difficulty":"MODERATE","name":"caloriees","id":4,"time":72580,"calories":14,"type":"CYCLING"},{"date":"09.04.2021","difficulty":"MODERATE","name":"testyyy","id":5,"time":61480,"calories":15,"type":"RUNNING"},{"date":"09.04.2021","difficulty":"MODERATE","name":"ajaja","id":6,"time":68640,"calories":7,"type":"WORKOUT"}],"ivet":[{"date":"27.04.2021","difficulty":"EASY","name":"fdsfs","id":0,"time":5441,"calories":0,"type":"Cycling"}]}
+{
+    "stat": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "test",
+            "endActivityTime": 1624097758438,
+            "id": 0,
+            "time": 113145,
+            "calories": 0,
+            "type": "Cycling"
+        }
+    ],
+    "test": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "fixed",
+            "endActivityTime": 1624097793338,
+            "id": 0,
+            "time": 47620,
+            "calories": 0,
+            "type": "Workout"
+        }
+    ],
+    "Brano": [
+        {
+            "date": "18.06.2021",
+            "difficulty": "EASY",
+            "name": "WalkTest",
+            "endActivityTime": 1624007798438,
+            "id": 1,
+            "time": 6390,
+            "calories": 0,
+            "type": "Walking"
+        }
+    ],
+    "tester": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "First Activity",
+            "endActivityTime": 16240977984238,
+            "id": 0,
+            "time": 47620,
+            "calories": 0,
+            "type": "Workout"
+        },
+        {
+            "date": "19.06.2021",
+            "difficulty": "MODERATE",
+            "name": "Secooond",
+            "endActivityTime": 1624097793238,
+            "id": 1,
+            "time": 66400,
+            "calories": 15,
+            "type": "Running"
+        },
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "calorie test",
+            "endActivityTime": 1624097798228,
+            "id": 2,
+            "time": 64819,
+            "calories": 6,
+            "type": "Workout"
+        }
+    ],
+    "Anina": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "test",
+            "endActivityTime": 1624097798138,
+            "id": 0,
+            "time": 11314,
+            "calories": 0,
+            "type": "Cycling"
+        }
+    ],
+    "noro": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "test2",
+            "endActivityTime": 1624097792538,
+            "id": 5,
+            "time": 3713,
+            "calories": 0,
+            "type": "Cycling"
+        }
+    ],
+    "ivet": [
+        {
+            "date": "19.06.2021",
+            "difficulty": "EASY",
+            "name": "fdsfs",
+            "endActivityTime": 1624097798438,
+            "id": 0,
+            "time": 5441,
+            "calories": 0,
+            "type": "Cycling"
+        }
+    ]
+}

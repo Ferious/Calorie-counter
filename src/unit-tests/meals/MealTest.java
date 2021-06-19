@@ -1,7 +1,8 @@
+package meals;
+
 import meal.Drink;
 import meal.Meal;
 import org.junit.jupiter.api.Test;
-
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -81,7 +82,6 @@ public class MealTest {
         }
     }
 
-
     @Test
     void addNewDrink1() {
         String name = "Cola2";
@@ -145,7 +145,6 @@ public class MealTest {
         }
     }
 
-
     @Test
     void addNewDrink2() {
         try {
@@ -205,7 +204,6 @@ public class MealTest {
             assertEquals("Incorrect name of Meal!", e.getMessage());
         }
     }
-
 
     @Test
     void setName() {
@@ -354,7 +352,6 @@ public class MealTest {
         }
     }
 
-
     @Test
     void setCombination2() {
         String name = ".Tomato";
@@ -402,6 +399,7 @@ public class MealTest {
         boolean check = generateMeal.Checkinput("fskd");
         assertFalse(check);
     }
+
     @Test
     void checkInput6() throws Exception {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
@@ -430,52 +428,52 @@ public class MealTest {
         assertTrue(check);
     }
 
-
     @Test
     void isOKTest1() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(2500, 3000);
+        int check = generateMeal.isOk(2500, 3000);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest2() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(999, 3000);
+        int check = generateMeal.isOk(999, 3000);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest3() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(998, 1100);
+        int check = generateMeal.isOk(998, 1100);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest4() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(2600, 2500);
+        int check = generateMeal.isOk(2600, 2500);
         assertEquals(check, 1);
     }
 
     @Test
     void isOKTest5() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(2100, 2500);
+        int check = generateMeal.isOk(2100, 2500);
         assertEquals(check, -1);
     }
 
     @Test
     void isOKTest6() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(1900, 1849);
+        int check = generateMeal.isOk(1900, 1849);
         assertEquals(check, 1);
     }
+
     @Test
     void isOKTest7() {
         meal.GenerateMeal generateMeal = new meal.GenerateMeal("ivet");
-        int check =  generateMeal.isOk(1900, 1799);
+        int check = generateMeal.isOk(1900, 1799);
         assertEquals(check, 1);
     }
 }
